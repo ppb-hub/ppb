@@ -1,0 +1,83 @@
+/* Fontes self-hosted (mesma identidade tipográfica do template) */
+@import "@fontsource/montserrat/500.css";
+@import "@fontsource/montserrat/600.css";
+@import "@fontsource/montserrat/700.css";
+@import "@fontsource/montserrat/800.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+
+@import "tailwindcss";
+
+/* Dark mode por classe (persistido via next-themes) — como no template */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-navy: #0F2B5B;
+  --color-navy-dark: #091d3f;
+  --color-navy-light: #1a3d7a;
+  --color-gold: #D4A843;
+  --color-gold-light: #e0bc6a;
+  --color-orange: #E8821A;
+  --color-orange-dark: #c96d10;
+  --color-status-done: #27AE60;
+  --color-status-progress: #F1C40F;
+  --color-status-stopped: #E74C3C;
+  --color-neutral: #F8F9FA;
+  --font-display: 'Montserrat', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --radius-card: 8px;
+  --shadow-card: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-card-hover: 0 8px 24px rgba(0,0,0,0.14);
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--font-body);
+  color: #1a2332;
+  background: #ffffff;
+  scroll-behavior: auto; /* App Router já restaura o scroll — sem smooth global */
+}
+
+html.dark body {
+  color: #ffffff;
+  background: #0a1628;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+*:hover {
+  scrollbar-color: rgba(15,43,91,0.2) transparent;
+}
+html.dark *:hover {
+  scrollbar-color: rgba(255,255,255,0.2) transparent;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fade-in 0.25s ease-out both;
+}
+
+@keyframes shimmer {
+  0% { opacity: 0.55; }
+  50% { opacity: 1; }
+  100% { opacity: 0.55; }
+}
+.skeleton {
+  animation: shimmer 1.4s ease-in-out infinite;
+  @apply bg-gray-200 dark:bg-white/10 rounded-xl;
+}
+
+/* Impressão — usada no botão "Imprimir" do detalhe do projeto */
+@media print {
+  header, footer, .no-print { display: none !important; }
+}
