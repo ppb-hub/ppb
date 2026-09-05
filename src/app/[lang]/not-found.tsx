@@ -22,7 +22,7 @@ export default async function LangNotFound({ params }: { params?: Promise<{ lang
           {pt ? "Voltar ao Início" : "Back to Home"}
         </Link>
         <Link href={localizedHref(locale, "projects")} className="px-6 py-3 border border-gray-300 dark:border-white/20 text-[#0F2B5B] dark:text-white rounded-xl hover:bg-gray-50 dark:hover:bg-white/5">
-          {pt ? "Ver Projetos" : "View Projects"}
+          {pt ? "Ver Projectos" : "View Projects"}
         </Link>
       </div>
     </div>

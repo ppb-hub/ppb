@@ -22,7 +22,7 @@ const CONTENT: Record<Locale, Array<{ h: string; ps: string[] }>> = {
     {
       h: "1. Responsável pelo tratamento",
       ps: [
-        "O Portal de Projectos é gerido pelo Governo Provincial de Benguela (GPB), com sede na Av. dos Combatentes, Benguela, Angola. Contactos: projetos@benguela.gov.ao.",
+        "O Portal de Projectos é gerido pelo Governo Provincial de Benguela (GPB), com sede na Av. dos Combatentes, Benguela, Angola. Contactos: projectos@benguela.gov.ao.",
       ],
     },
     {
@@ -36,7 +36,7 @@ const CONTENT: Record<Locale, Array<{ h: string; ps: string[] }>> = {
       h: "3. Finalidades e conservação",
       ps: [
         "Os dados do formulário são usados para responder às solicitações e manter registo das interações. São conservados enquanto for necessário para a finalidade declarada ou exigido por obrigação legal.",
-        "Os conteúdos institucionais (projetos, números, atualizações) são públicos e não contêm dados pessoais.",
+        "Os conteúdos institucionais (projectos, números, atualizações) são públicos e não contêm dados pessoais.",
       ],
     },
     {
@@ -54,7 +54,7 @@ const CONTENT: Record<Locale, Array<{ h: string; ps: string[] }>> = {
     {
       h: "6. Direitos dos titulares",
       ps: [
-        "Pode solicitar acesso, retificação ou eliminação dos seus dados, bem como opor-se ao tratamento, escrevendo para projetos@benguela.gov.ao.",
+        "Pode solicitar acesso, retificação ou eliminação dos seus dados, bem como opor-se ao tratamento, escrevendo para projectos@benguela.gov.ao.",
       ],
     },
     {
@@ -65,7 +65,7 @@ const CONTENT: Record<Locale, Array<{ h: string; ps: string[] }>> = {
   en: [
     {
       h: "1. Data controller",
-      ps: ["The Projects Portal is operated by the Provincial Government of Benguela (GPB), headquartered at Av. dos Combatentes, Benguela, Angola. Contact: projetos@benguela.gov.ao."],
+      ps: ["The Projects Portal is operated by the Provincial Government of Benguela (GPB), headquartered at Av. dos Combatentes, Benguela, Angola. Contact: projectos@benguela.gov.ao."],
     },
     {
       h: "2. Data we collect",
@@ -95,7 +95,7 @@ const CONTENT: Record<Locale, Array<{ h: string; ps: string[] }>> = {
     },
     {
       h: "6. Rights",
-      ps: ["You may request access, rectification or erasure of your data, and object to processing, by writing to projetos@benguela.gov.ao."],
+      ps: ["You may request access, rectification or erasure of your data, and object to processing, by writing to projectos@benguela.gov.ao."],
     },
     {
       h: "7. Security",

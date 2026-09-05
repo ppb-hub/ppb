@@ -42,7 +42,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   }
 
-  // hreflang alternates para projetos (mesma página em pt/en)
+  // hreflang alternates para projectos (mesma página em pt/en)
   for (const slug of slugs) {
     const ptUrl = `${site}${localizedHref("pt" as Locale, "projects", slug)}`;
     entries.push({

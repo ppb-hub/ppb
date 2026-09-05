@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     template: "%s — Portal de Projectos de Benguela",
   },
   description:
-    "Acompanhe os projetos públicos, investimentos e oportunidades da Província de Benguela, Angola.",
+    "Acompanhe os projectos públicos, investimentos e oportunidades da Província de Benguela, Angola.",
   applicationName: "Portal de Projectos de Benguela",
   manifest: "/manifest.webmanifest",
   alternates: {

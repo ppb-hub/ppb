@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     title,
     description:
       locale === "pt"
-        ? "Explore todos os projetos públicos da Província de Benguela: mapa, filtros por município, setor e estado de execução."
+        ? "Explore todos os projectos públicos da Província de Benguela: mapa, filtros por município, setor e estado de execução."
         : "Explore all public projects of Benguela Province: filters by municipality, sector and execution status.",
     alternates: {
       canonical: localizedHref(locale, "projects"),

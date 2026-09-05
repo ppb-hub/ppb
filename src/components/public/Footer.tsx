@@ -30,13 +30,16 @@ export default function Footer({ locale, ui, contacts }: { locale: Locale; ui: U
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <span className="w-10 h-10 rounded-lg bg-[#D4A843] flex items-center justify-center">
-                <span className="text-[#0F2B5B] font-bold text-sm font-['Montserrat']">GPB</span>
-              </span>
-              <span>
+              <img
+                src="/media/logo.png"
+                alt="GPB Logo"
+                className="w-10 h-10 rounded-lg object-contain"
+                style={{ width: 280, height: 70 }}
+              />
+              {/* <span>
                 <span className="block font-bold text-sm font-['Montserrat']">{ui.brandLine1}</span>
                 <span className="block text-[#D4A843] text-xs">{ui.brandLine2}</span>
-              </span>
+              </span> */}
             </div>
             <p className="text-white/60 text-sm leading-relaxed">{ui.footer.aboutText}</p>
             <div className="mt-4 flex items-center gap-2">

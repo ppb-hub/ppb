@@ -98,7 +98,7 @@ export default function HeroSection({
 
 
       {/* Conteúdo - FIXO */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 py-5 sm:px-6 text-center">
         {heroBadge ? (
           <div className="inline-flex items-center gap-2 bg-[#D4A843]/20 border border-[#D4A843]/40 text-[#D4A843] text-sm font-medium px-4 py-2 rounded-full mb-6 backdrop-blur-sm">
             <Zap size={14} aria-hidden="true" />

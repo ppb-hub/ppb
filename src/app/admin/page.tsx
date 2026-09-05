@@ -95,7 +95,7 @@ export default function AdminDashboard() {
         <Card title="Atalhos" actions={<Link className="text-xs text-[#E8821A] hover:underline" href="/admin/mensagens">Mensagens →</Link>}>
           <div className="grid grid-cols-2 gap-3 text-sm">
             {[
-              { href: "/admin/projetos", label: "Gerir projetos" },
+              { href: "/admin/projetos", label: "Gerir projectos" },
               { href: "/admin/projetos/novo", label: "Novo projeto" },
               { href: "/admin/numeros", label: "Números da home" },
               { href: "/admin/definicoes", label: "Definições do site" },

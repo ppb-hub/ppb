@@ -18,7 +18,7 @@ export default function AdminProjectsList() {
     try {
       setRows(await listProjects());
     } catch (e) {
-      setError(e instanceof Error ? e.message : "Erro ao carregar projetos");
+      setError(e instanceof Error ? e.message : "Erro ao carregar projectos");
       setRows([]);
     }
   }, []);
@@ -72,7 +72,7 @@ export default function AdminProjectsList() {
         {!rows ? (
           <RowsLoading />
         ) : rows.length === 0 ? (
-          <p className="text-sm text-gray-400 py-6 text-center">Sem projetos.</p>
+          <p className="text-sm text-gray-400 py-6 text-center">Sem projectos.</p>
         ) : (
           <Table head={["Projeto", "Município / Setor", "Estado", "Progresso", "Publicado", "Ações"]}>
             {rows.map((p) => (

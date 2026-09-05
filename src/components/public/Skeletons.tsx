@@ -17,7 +17,7 @@ export function ProjectCardSkeleton() {
 
 export function ProjectGridSkeleton({ count = 6 }: { count?: number }) {
   return (
-    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" aria-busy="true" aria-label="A carregar projetos">
+    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" aria-busy="true" aria-label="A carregar projectos">
       {Array.from({ length: count }).map((_, i) => (
         <ProjectCardSkeleton key={i} />
       ))}
