@@ -104,9 +104,9 @@ export default async function InvestPage({
     <div className="min-h-screen bg-white dark:bg-[#0a1628]">
       <div className="bg-[#0F2B5B] py-10 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
-          <Breadcrumbs locale={locale} ui={ui} items={[{ label: ui.projects.title }]} />
+          <Breadcrumbs locale={locale} ui={ui} items={[{ label: ui.investor.title }]} />
           <div className="flex flex-col sm:flex-row sm:items-center gap-3">
-            <h1 className="text-3xl font-bold text-white font-['Montserrat']">{ui.projects.title}</h1>
+            <h1 className="text-3xl font-bold text-white font-['Montserrat']">{ui.investor.opportunitiesTitle}</h1>
             {projectsRes.ok ? (
               <span className="bg-[#D4A843] text-[#0F2B5B] text-sm font-bold px-3 py-1 rounded-full self-start sm:self-auto">
                 {t(ui.common.projectsCount, { n: projectsRes.data.length })}
@@ -122,6 +122,26 @@ export default async function InvestPage({
         </div>
       ) : (
         <div>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+            {/* Indicadores macro */}
+            {indicators.length > 0 && (
+              <section>
+                <h2 className="text-2xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat'] mb-6">{ui.investor.indicatorsTitle}</h2>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                  {indicators.map((ind) => (
+                    <div key={ind.id} className="bg-[#F8F9FA] dark:bg-[#0F2B5B]/30 rounded-xl p-5 border border-gray-100 dark:border-white/10">
+                      <div className="mb-3">
+                        <ApiIcon name={ind.icon} size={20} className={ind.color ? "" : "text-[#D4A843]"} />
+                      </div>
+                      <div className="text-xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat']">{ind.value}</div>
+                      <div className="text-xs text-gray-500 dark:text-white/60 mt-1">{bi(ind, "label", locale)}</div>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+          </div>
+
           <ProjectsExplorer
             locale={locale}
             ui={ui}

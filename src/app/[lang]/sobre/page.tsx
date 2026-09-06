@@ -147,7 +147,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
         )}
 
         {/* Estrutura Organizacional — /api/about/org */}
-        {org.length > 0 && (
+        {/* {org.length > 0 && (
           <section>
             <h2 className="text-2xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat'] mb-8 text-center">{ui.about.orgTitle}</h2>
             <div className="flex flex-col items-center gap-3">
@@ -168,10 +168,10 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
               ))}
             </div>
           </section>
-        )}
+        )} */}
 
         {/* Realizações — /api/about/milestones */}
-        {milestones.length > 0 && (
+        {/* {milestones.length > 0 && (
           <section>
             <h2 className="text-2xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat'] mb-8">{ui.about.timelineTitle}</h2>
             <div className="space-y-0">
@@ -191,7 +191,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
               ))}
             </div>
           </section>
-        )}
+        )} */}
 
         {/* Vídeo institucional (se configurado no backend) */}
         {about?.video_url ? (

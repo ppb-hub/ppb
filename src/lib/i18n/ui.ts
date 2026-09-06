@@ -247,7 +247,7 @@ const pt: UiStrings = {
   menu: { open: "Menu", close: "Fechar menu" },
   footer: {
     aboutText:
-      "Portal de Projectos e Projetos de Benguela. Promovemos o acesso à informação pública e o desenvolvimento sustentável da nossa província.",
+      "Portal de Projectos de Benguela. BENGUELA DE MUNICÍPIO A MUNICÍPIO RUMO AO DESENVOLVIMENTO.",
     certificate: "Certificado de Transparência 2025",
     quickLinks: "Links Rápidos",
     links: {
@@ -498,7 +498,7 @@ const en: UiStrings = {
   menu: { open: "Menu", close: "Close menu" },
   footer: {
     aboutText:
-      "Benguela Projects Portal. We promote access to public information and sustainable development across our province.",
+      "Benguela Projects Portal. BENGUELA FROM MUNICIPALITY TO MUNICIPALITY TOWARDS DEVELOPMENT.",
     certificate: "Transparency Certificate 2025",
     quickLinks: "Quick Links",
     links: {

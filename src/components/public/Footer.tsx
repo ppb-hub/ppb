@@ -19,9 +19,6 @@ export default function Footer({ locale, ui, contacts }: { locale: Locale; ui: U
   // rótulos como no template original (sem ícones de marca na UI)
   const socials = [
     { key: "fb", label: "fb", href: contacts.facebook },
-    { key: "ig", label: "ig", href: contacts.instagram },
-    { key: "yt", label: "yt", href: contacts.youtube },
-    { key: "in", label: "in", href: contacts.linkedin },
   ];
 
   return (
@@ -95,10 +92,6 @@ export default function Footer({ locale, ui, contacts }: { locale: Locale; ui: U
                   <span className="text-white/70 group-hover:text-[#0F2B5B] text-xs font-bold uppercase">{label}</span>
                 </a>
               ))}
-            </div>
-            <div className="bg-white/5 rounded-lg p-3">
-              <div className="text-xs text-white/50 mb-1">{ui.footer.openDataTitle}</div>
-              <div className="text-xs text-white/80">{ui.footer.openDataText}</div>
             </div>
           </div>
         </div>
