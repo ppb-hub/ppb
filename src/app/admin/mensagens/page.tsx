@@ -88,7 +88,6 @@ export default function AdminMessagesPage() {
     <div className="space-y-5">
       <div>
         <h1 className="text-2xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat']">Mensagens de Contacto</h1>
-        <p className="text-xs text-gray-500 dark:text-white/50 mt-0.5">Recebidas via POST /api/contact — o envio de e-mail é da responsabilidade do backend.</p>
       </div>
 
       <div className="flex gap-2 flex-wrap">

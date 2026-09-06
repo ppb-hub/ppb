@@ -132,7 +132,7 @@ function NewAdminForm() {
 
   return (
     <Card title="Novo administrador">
-      <p className="text-[11px] text-gray-400 mb-3">POST /api/auth/admin — criação de contas administrativas (acesso restrito).</p>
+      <p className="text-[11px] text-gray-400 mb-3">Criação de contas administrativas (acesso restrito).</p>
       <form onSubmit={submit} className="space-y-4">
         {error ? <ErrorLine message={error} /> : null}
         <div className="grid sm:grid-cols-2 gap-4">

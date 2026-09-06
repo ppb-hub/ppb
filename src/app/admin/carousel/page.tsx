@@ -122,12 +122,7 @@ export default function AdminHeroPage() {
   if (mode === "legacy") {
     return (
       <div className="space-y-5">
-        <div className="rounded-xl border border-[#D4A843]/50 bg-[#D4A843]/10 px-4 py-3 text-xs text-[#8a6a1f] dark:text-[#D4A843]">
-          O backend ainda não expõe <span className="font-mono">/api/admin/hero-images</span> (upload → BD).
-          Está a usar o editor legado pela chave <span className="font-mono">settings.hero_slides</span>.
-          Consulte <span className="font-mono">docs/API_INTEGRATION_NOTES.md §6.1</span> para ativar o armazenamento
-          das imagens na base de dados.
-        </div>
+        
         <HeroSlidesSettingsEditor />
       </div>
     );

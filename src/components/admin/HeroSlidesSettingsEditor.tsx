@@ -84,10 +84,6 @@ export default function HeroSlidesSettingsEditor() {
   return (
     <div className="space-y-5 max-w-4xl">
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <p className="text-xs text-gray-500 dark:text-white/50">
-          Edição pela chave <span className="font-mono">hero_slides</span> de{" "}
-          <span className="font-mono">PUT /api/admin/settings</span> (JSON) — apenas URLs, sem upload.
-        </p>
         <div className="flex gap-2">
           <Btn variant="outline" onClick={() => setRows((r) => [...(r ?? []), { url: "", alt_pt: null, alt_en: null }])}>
             <ImagePlus size={15} aria-hidden="true" /> Adicionar slide
@@ -100,10 +96,7 @@ export default function HeroSlidesSettingsEditor() {
 
       {error ? <ErrorLine message={error} /> : null}
       {usingFallback ? (
-        <div className="rounded-xl border border-[#D4A843]/50 bg-[#D4A843]/10 px-4 py-3 text-xs text-[#8a6a1f] dark:text-[#D4A843]">
-          O backend ainda não devolve <span className="font-mono">hero_slides</span> — estão a ser mostrados os valores
-          atuais da home. Guardar cria a chave; sem slides guardados, a home mantém estes dois.
-        </div>
+        <div></div>
       ) : null}
 
       {rows === null ? (

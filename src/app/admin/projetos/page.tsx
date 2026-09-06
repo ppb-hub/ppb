@@ -57,7 +57,6 @@ export default function AdminProjectsList() {
         <div>
           <h1 className="text-2xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat']">Projetos</h1>
           <p className="text-xs text-gray-500 dark:text-white/50 mt-0.5">
-            GET/POST/PUT/DELETE /api/admin/projects — com objetivos, imagens e documentos aninhados.
           </p>
         </div>
         <Link href="/admin/projetos/novo">

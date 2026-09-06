@@ -82,9 +82,6 @@ export default function AdminSettingsPage() {
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h1 className="text-2xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat']">Definições do Site</h1>
-          <p className="text-xs text-gray-500 dark:text-white/50 mt-0.5">
-            Chaves expostas por GET /api/admin/settings. O site público usa as que existirem (contactos, redes, hero).
-          </p>
         </div>
         <Btn onClick={save} loading={saving} disabled={!dirty}>
           <Save size={15} aria-hidden="true" /> Guardar tudo

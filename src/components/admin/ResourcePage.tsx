@@ -137,9 +137,6 @@ export default function ResourcePage<T extends { id: number }>({ config }: { con
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h1 className="text-2xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat']">{config.name}</h1>
-          <p className="text-xs text-gray-500 dark:text-white/50 mt-0.5">
-            Editado através dos endpoints administrativos do backend.
-          </p>
         </div>
         {config.create && (
           <Btn onClick={openNew}>

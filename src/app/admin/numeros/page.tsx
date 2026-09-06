@@ -66,7 +66,7 @@ export default function AdminStatsPage() {
       <div>
         <h1 className="text-2xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat']">Números da Homepage</h1>
         <p className="text-xs text-gray-500 dark:text-white/50 mt-0.5">
-          PUT /api/admin/stats/{"{stat_id}"} — os valores mostrados na secção “Números da Província”.
+          Os valores mostrados na secção “Números da Província”.
         </p>
       </div>
 
