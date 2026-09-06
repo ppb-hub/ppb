@@ -37,9 +37,9 @@ export default async function ContactPage({
 
   const settings = settingsRes.ok ? settingsRes.data : null;
   const sidebar = {
-    phone: pickSetting(settings ?? {}, "contact_phone", locale) ?? "+244 272 222 000",
-    email: pickSetting(settings ?? {}, "contact_email", locale) ?? "projectos@benguela.gov.ao",
-    address: pickSetting(settings ?? {}, "address", locale) ?? "Av. dos Combatentes, Benguela, Angola",
+    phone: pickSetting(settings ?? {}, "contact_phone", locale) ?? "+244 272 232 105",
+    email: pickSetting(settings ?? {}, "contact_email", locale) ?? "gg.gp@benguela.gov.ao",
+    address: pickSetting(settings ?? {}, "address", locale) ?? "Governo Provincial de Benguela, Rua de Timor",
     hours: pickSetting(settings ?? {}, "business_hours", locale) ?? (locale === "pt" ? "8h às 17h (dias úteis)" : "8am–5pm (business days)"),
   };
 

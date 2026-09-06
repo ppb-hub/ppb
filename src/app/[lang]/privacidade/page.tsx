@@ -22,7 +22,7 @@ const CONTENT: Record<Locale, Array<{ h: string; ps: string[] }>> = {
     {
       h: "1. Responsável pelo tratamento",
       ps: [
-        "O Portal de Projectos é gerido pelo Governo Provincial de Benguela (GPB), com sede na Av. dos Combatentes, Benguela, Angola. Contactos: projectos@benguela.gov.ao.",
+        "O Portal de Projectos é gerido pelo Governo Provincial de Benguela (GPB), com sede na Governo Provincial de Benguela, Rua de Timor. Contactos: gg.gp@benguela.gov.ao.",
       ],
     },
     {
@@ -65,7 +65,7 @@ const CONTENT: Record<Locale, Array<{ h: string; ps: string[] }>> = {
   en: [
     {
       h: "1. Data controller",
-      ps: ["The Projects Portal is operated by the Provincial Government of Benguela (GPB), headquartered at Av. dos Combatentes, Benguela, Angola. Contact: projectos@benguela.gov.ao."],
+      ps: ["The Projects Portal is operated by the Provincial Government of Benguela (GPB), headquartered at Governo Provincial de Benguela, Rua de Timor. Contact: gg.gp@benguela.gov.ao."],
     },
     {
       h: "2. Data we collect",

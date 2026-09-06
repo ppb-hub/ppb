@@ -499,7 +499,7 @@ const en: UiStrings = {
   footer: {
     aboutText:
       "Benguela Projects Portal. BENGUELA FROM MUNICIPALITY TO MUNICIPALITY TOWARDS DEVELOPMENT.",
-    certificate: "Transparency Certificate 2025",
+    certificate: "Transparency Certificate 2026",
     quickLinks: "Quick Links",
     links: {
       allProjects: "All Projects",

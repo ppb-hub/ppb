@@ -35,9 +35,9 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 /** Contactos do rodapé: /api/settings quando a chave existir; senão o texto do template. */
 async function loadContacts(locale: Locale): Promise<SiteContacts> {
   const fallbacks: SiteContacts = {
-    phone: "+244 272 222 000",
-    email: "projetos@benguela.gov.ao",
-    address: "Governo Provincial de Benguela, Av. dos Combatentes, Benguela, Angola",
+    phone: "+244 272 232 105",
+    email: "gg.gp@benguela.gov.ao",
+    address: "Governo Provincial de Benguela, Rua de Timor",
     hours: locale === "pt" ? "8h às 17h (dias úteis)" : "8am–5pm (business days)",
   };
   const res = await safe.settings();

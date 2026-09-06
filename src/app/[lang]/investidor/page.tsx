@@ -152,25 +152,7 @@ export default async function InvestPage({
             initialQuery={sp.q ?? ""}
           />
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
-            {/* Indicadores macro */}
-            {indicators.length > 0 && (
-              <section>
-                <h2 className="text-2xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat'] mb-6">{ui.investor.indicatorsTitle}</h2>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                  {indicators.map((ind) => (
-                    <div key={ind.id} className="bg-[#F8F9FA] dark:bg-[#0F2B5B]/30 rounded-xl p-5 border border-gray-100 dark:border-white/10">
-                      <div className="mb-3">
-                        <ApiIcon name={ind.icon} size={20} className={ind.color ? "" : "text-[#D4A843]"} />
-                      </div>
-                      <div className="text-xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat']">{ind.value}</div>
-                      <div className="text-xs text-gray-500 dark:text-white/60 mt-1">{bi(ind, "label", locale)}</div>
-                    </div>
-                  ))}
-                </div>
-              </section>
-            )}
-
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 pb-8">
             {/* Depoimentos - removido por enquanto */}
             {testimonials.length == -1 && (
               <section>
