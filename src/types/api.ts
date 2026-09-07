@@ -91,6 +91,7 @@ export interface ProjectListOut {
   sector: SectorOut;
   municipality: MunicipalityOut;
   status: ProjectStatusOut;
+  is_opportunity: boolean;
 }
 
 export interface ProjectDetailOut extends ProjectListOut {

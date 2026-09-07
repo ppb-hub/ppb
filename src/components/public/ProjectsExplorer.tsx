@@ -45,6 +45,7 @@ export default function ProjectsExplorer({
   municipalities,
   statuses,
   initialQuery,
+  showOpportunities = false,
 }: {
   locale: Locale;
   ui: UiStrings;
@@ -53,6 +54,7 @@ export default function ProjectsExplorer({
   municipalities: MunicipalityOut[];
   statuses: ProjectStatusOut[];
   initialQuery: string;
+  showOpportunities?: boolean;
 }) {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -135,13 +137,15 @@ export default function ProjectsExplorer({
     let result = projects;
     const q = query.trim().toLowerCase();
     if (q) result = result.filter((p) => textOf(p).includes(q));
+    if (showOpportunities) result = result.filter((p) => p.is_opportunity);
+    else result = result.filter((p) => !p.is_opportunity);
     if (sortBy === "value") result = [...result].sort((a, b) => moneyValue(b) - moneyValue(a));
     else if (sortBy === "progress") result = [...result].sort((a, b) => b.progress - a.progress);
     else if (sortBy === "name")
       result = [...result].sort((a, b) => bi(a, "title", locale).localeCompare(bi(b, "title", locale)));
     return result;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [projects, query, sortBy, locale]);
+  }, [projects, query, sortBy, locale, showOpportunities]);
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / perPage));
   const safePage = Math.min(page, totalPages);

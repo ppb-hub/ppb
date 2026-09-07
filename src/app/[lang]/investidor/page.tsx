@@ -96,6 +96,7 @@ export default async function InvestPage({
   const phone = pickSetting(settings ?? {}, "contact_phone", locale) ?? "+244 272 222 000";
 
   const opportunities = oppsRes.ok ? oppsRes.data : [];
+  const filteredOpportunities = projectsRes.ok ? projectsRes.data.filter((project) => project.is_opportunity) : [];
   const indicators = indsRes.ok ? indsRes.data : [];
   const testimonials = testsRes.ok ? testsRes.data : [];
   const docs = docsRes.ok ? docsRes.data : [];
@@ -109,7 +110,7 @@ export default async function InvestPage({
             <h1 className="text-3xl font-bold text-white font-['Montserrat']">{ui.investor.opportunitiesTitle}</h1>
             {projectsRes.ok ? (
               <span className="bg-[#D4A843] text-[#0F2B5B] text-sm font-bold px-3 py-1 rounded-full self-start sm:self-auto">
-                {t(ui.common.projectsCount, { n: projectsRes.data.length })}
+                {t(ui.common.projectsCount, { n: filteredOpportunities.length })}
               </span>
             ) : null}
           </div>
@@ -145,7 +146,8 @@ export default async function InvestPage({
           <ProjectsExplorer
             locale={locale}
             ui={ui}
-            projects={projectsRes.data}
+            projects={filteredOpportunities}
+            showOpportunities={true}
             sectors={sectorsRes.ok ? sectorsRes.data : []}
             municipalities={munisRes.ok ? munisRes.data : []}
             statuses={statusesRes.ok ? statusesRes.data : []}

@@ -52,6 +52,8 @@ export default async function ProjectsPage({
     safe.statuses(),
   ]);
 
+const visibleProjects = projectsRes.ok ? projectsRes.data.filter((project) => !project.is_opportunity) : [];
+
   return (
     <div className="min-h-screen bg-white dark:bg-[#0a1628]">
       <div className="bg-[#0F2B5B] py-10 px-4 sm:px-6">
@@ -61,7 +63,7 @@ export default async function ProjectsPage({
             <h1 className="text-3xl font-bold text-white font-['Montserrat']">{ui.projects.title}</h1>
             {projectsRes.ok ? (
               <span className="bg-[#D4A843] text-[#0F2B5B] text-sm font-bold px-3 py-1 rounded-full self-start sm:self-auto">
-                {t(ui.common.projectsCount, { n: projectsRes.data.length })}
+                {t(ui.common.projectsCount, { n: visibleProjects.length })}
               </span>
             ) : null}
           </div>
@@ -76,11 +78,12 @@ export default async function ProjectsPage({
         <ProjectsExplorer
           locale={locale}
           ui={ui}
-          projects={projectsRes.data}
+          projects={visibleProjects}
           sectors={sectorsRes.ok ? sectorsRes.data : []}
           municipalities={munisRes.ok ? munisRes.data : []}
           statuses={statusesRes.ok ? statusesRes.data : []}
           initialQuery={sp.q ?? ""}
+          showOpportunities={false}
         />
       )}
     </div>
