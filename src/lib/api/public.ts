@@ -76,8 +76,7 @@ export const safe = {
   investorOpportunities: () => apiGetSafe<InvestorOpportunityOut[]>("/api/investor/opportunities"),
   investorIndicators: () => apiGetSafe<InvestorIndicatorOut[]>("/api/investor/indicators"),
   investorTestimonials: () => apiGetSafe<TestimonialOut[]>("/api/investor/testimonials"),
-  investorDocuments: () => apiGetSafe<InvestorDocumentOut[]>("/api/investor/documents"),
-};
+  investorDocuments: () => apiGetSafe<InvestorDocumentOut[]>("/api/investor/documents"),  heroImages: () => apiGetSafe<HeroImageOut[]>('/api/hero-images'),};
 
 export type { SafeResult };
 
@@ -112,4 +111,4 @@ import { browserFetch } from "./server-fetch";
 
 const callPublic = <T>(path: string) => browserFetch<T>(path);
 
-export const getHeroImages = () => callPublic<HeroImageOut[]>("/api/v1/hero-images");
+export const getHeroImages = () => callPublic<HeroImageOut[]>("/api/hero-images");

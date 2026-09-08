@@ -119,16 +119,22 @@ export async function browserFetch<T>(
   init: { method?: string; body?: unknown; token?: string | null } = {}
 ): Promise<T> {
   const headers: Record<string, string> = { Accept: "application/json" };
-  if (init.body !== undefined) headers["Content-Type"] = "application/json";
+  const isFormData = typeof FormData !== "undefined" && init.body instanceof FormData;
+
+  if (init.body !== undefined && !isFormData) headers["Content-Type"] = "application/json";
   if (init.token) headers.Authorization = `Bearer ${init.token}`;
 
   let res: Response;
+  const requestBody = init.body !== undefined
+    ? (isFormData ? (init.body as BodyInit) : JSON.stringify(init.body))
+    : undefined;
+
   try {
     res = await fetch(`${API_PREFIX}${path}`, {
       method: init.method ?? "GET",
       headers,
       credentials: "include",
-      body: init.body !== undefined ? JSON.stringify(init.body) : undefined,
+      body: requestBody,
     });
   } catch {
     throw new ApiError(0, "Sem ligação ao servidor. Verifique a sua rede.", "network");

@@ -13,6 +13,7 @@ interface HeroSectionProps {
   locale: string;
   heroBadge: string | null;
   heroImage: string;
+  heroImages?: string[];
   ui: {
     home: {
       heroTitle1: string;
@@ -31,14 +32,14 @@ export default function HeroSection({
   locale, 
   heroBadge, 
   heroImage, 
+  heroImages,
   ui,
   projectsUrl,
   contactUrl
 }: HeroSectionProps) {
-  const heroImages = [
-    heroImage,
-    "/media/invest-port.jpg"
-  ];
+  const slides = (heroImages && heroImages.length > 0 ? heroImages : [heroImage]).filter(
+    (image): image is string => Boolean(image)
+  );
 
   return (
     <section className="relative min-h-[92vh] flex items-center justify-center overflow-hidden">
@@ -67,8 +68,8 @@ export default function HeroSection({
           className="w-full h-full"
           style={{ position: 'absolute', inset: 0 }}
         >
-          {heroImages.map((image, index) => (
-            <SwiperSlide key={index}>
+          {slides.map((image, index) => (
+            <SwiperSlide key={`${image}-${index}`}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={image}

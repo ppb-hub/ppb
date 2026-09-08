@@ -25,6 +25,15 @@ export function browserAssetUrl(url: string | null | undefined): string | undefi
   return resolveAssetUrl(url, "browser");
 }
 
+/** Normaliza caminhos relativos do backend para o formato raiz (/uploads/hero/3). */
+export function normalizeAssetUrl(url: string | null | undefined): string | undefined {
+  if (!url) return undefined;
+  const u = url.trim();
+  if (!u) return undefined;
+  if (/^https?:\/\//i.test(u) || u.startsWith("//") || u.startsWith("data:")) return u;
+  return u.startsWith("/") ? u : `/${u}`;
+}
+
 /**
  * Resolve caminhos devolvidos pela API para uma URL utilizável por <img>/href.
  * - http(s)://... → tal e qual
@@ -37,13 +46,12 @@ export function resolveAssetUrl(
   mode: "browser" | "server" = "browser"
 ): string | undefined {
   if (!url) return undefined;
-  const u = url.trim();
+  const u = normalizeAssetUrl(url);
   if (!u) return undefined;
   if (/^https?:\/\//i.test(u)) return u;
   if (u.startsWith("//")) return `https:${u}`;
-  if (u.startsWith("/media/") || u.startsWith("/images/")) return u;
-  const path = u.startsWith("/") ? u : `/${u}`;
-  return mode === "browser" ? `${API_PREFIX}${path}` : `${serverBase()}${path}`;
+  if (u.startsWith("/media/") || u.startsWith("/images/")) return mode === "browser" ? u : `${serverBase()}${u}`;
+  return mode === "browser" ? `${API_PREFIX}${u}` : `${serverBase()}${u}`;
 }
 
 /** Site URL pública (canonical, sitemap, OG). */

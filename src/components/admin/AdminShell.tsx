@@ -57,7 +57,7 @@ const NAV = [
   {
     section: "Investidor",
     items: [
-      { href: "/admin/oportunidades", label: "Oportunidades", icon: TrendingUp },
+      // { href: "/admin/oportunidades", label: "Oportunidades", icon: TrendingUp },
       { href: "/admin/indicadores", label: "Indicadores", icon: BarChart3 },
       { href: "/admin/depoimentos", label: "Depoimentos", icon: Quote },
       { href: "/admin/documentos", label: "Documentos", icon: FileText },

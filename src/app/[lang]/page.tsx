@@ -41,11 +41,12 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
   const locale = (LOCALES as readonly string[]).includes(lang) ? (lang as Locale) : DEFAULT_LOCALE;
   const ui = getUi(locale);
 
-  const [statsRes, projectsRes, updatesRes, settingsRes] = await Promise.all([
+  const [statsRes, projectsRes, updatesRes, settingsRes, heroImagesRes] = await Promise.all([
     safe.stats(),
     safe.projects({ limit: 5 }),
     safe.updates(),
     safe.settings(),
+    safe.heroImages(),
   ]);
 
   const settings = settingsRes.ok ? settingsRes.data : null;
@@ -57,6 +58,11 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
   const heroImage =
     resolveAssetUrl(pickSetting(settings ?? {}, "hero_image", locale)) ?? "/media/hero-benguela.jpg";
 
+  const heroImages =
+    heroImagesRes.ok && heroImagesRes.data.length > 0
+      ? heroImagesRes.data.map((image) => resolveAssetUrl(image.url) ?? image.url)
+      : [heroImage];
+
   const projectsUrl = localizedHref(locale, "projects");
   const contactUrl = localizedHref(locale, "contact");
 
@@ -66,6 +72,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         locale={locale}
         heroBadge={heroBadge}
         heroImage={heroImage}
+        heroImages={heroImages}
         ui={ui}
         projectsUrl={projectsUrl}
         contactUrl={contactUrl}

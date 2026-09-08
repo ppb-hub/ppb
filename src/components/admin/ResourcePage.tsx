@@ -1,14 +1,16 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
-import { Pencil, Trash2, Plus } from "lucide-react";
+import { useCallback, useEffect, useMemo, useState, type ChangeEvent } from "react";
+import { Pencil, Trash2, Plus, Upload } from "lucide-react";
 import { Btn, Card, Confirm, ErrorLine, inputCls, Label, Modal, RowsLoading, Table, Toggle, toast } from "./ui";
 import { ApiError } from "@/lib/api/errors";
+import { uploadFile, uploadImage } from "@/lib/api/admin";
+import { normalizeAssetUrl, resolveAssetUrl } from "@/lib/api/config";
 
 export interface FieldDef {
   key: string;
   label: string;
-  type?: "text" | "textarea" | "number" | "boolean" | "select" | "date";
+  type?: "text" | "textarea" | "number" | "boolean" | "select" | "date" | "image" | "file";
   required?: boolean;
   half?: boolean;
   options?: Array<{ value: string | number; label: string }>;
@@ -220,6 +222,18 @@ export default function ResourcePage<T extends { id: number }>({ config }: { con
                       </option>
                     ))}
                   </select>
+                ) : f.type === "image" ? (
+                  <ImageUploadField
+                    value={String(form[f.key] ?? "")}
+                    onChange={(v) => setForm((p) => ({ ...p, [f.key]: v }))}
+                    placeholder={f.placeholder || "https://.../imagem.jpg"}
+                  />
+                ) : f.type === "file" ? (
+                  <FileUploadField
+                    value={String(form[f.key] ?? "")}
+                    onChange={(v) => setForm((p) => ({ ...p, [f.key]: v }))}
+                    placeholder={f.placeholder || "https://.../documento.pdf"}
+                  />
                 ) : (
                   <input
                     type={f.type === "number" ? "number" : f.type === "date" ? "date" : "text"}
@@ -247,6 +261,99 @@ export default function ResourcePage<T extends { id: number }>({ config }: { con
           onConfirm={() => remove(deleting)}
         />
       )}
+    </div>
+  );
+}
+
+function ImageUploadField({ value, onChange, placeholder }: { value: string; onChange: (next: string) => void; placeholder?: string }) {
+  const [uploading, setUploading] = useState(false);
+
+  const onFile = async (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    setUploading(true);
+    try {
+      const url = await uploadImage(file);
+      onChange(normalizeAssetUrl(url) ?? url);
+      toast("Imagem carregada.");
+    } catch (e) {
+      toast(e instanceof Error ? e.message : "Erro ao carregar imagem", "err");
+    } finally {
+      setUploading(false);
+      event.target.value = "";
+    }
+  };
+
+  const previewUrl = value ? resolveAssetUrl(value) ?? value : undefined;
+
+  return (
+    <div className="space-y-2">
+      <div className="flex items-center gap-2">
+        <input
+          type="text"
+          className={inputCls}
+          value={value}
+          placeholder={placeholder}
+          onChange={(e) => onChange(normalizeAssetUrl(e.target.value) ?? e.target.value)}
+        />
+        <label className="inline-flex cursor-pointer items-center gap-2 rounded-lg border border-gray-200 bg-white px-2.5 py-2 text-xs font-medium text-[#0F2B5B] hover:bg-gray-50 dark:border-white/10 dark:bg-[#0F2B5B]/20 dark:text-white">
+          <Upload size={12} />
+          {uploading ? "A enviar..." : "Upload"}
+          <input type="file" accept="image/*" className="hidden" onChange={onFile} />
+        </label>
+      </div>
+      {previewUrl ? (
+        <div className="h-16 w-28 overflow-hidden rounded-lg border border-gray-200 bg-gray-100 dark:border-white/10 dark:bg-white/5">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={previewUrl} alt="Pré-visualização" className="h-full w-full object-cover" />
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
+function FileUploadField({ value, onChange, placeholder }: { value: string; onChange: (next: string) => void; placeholder?: string }) {
+  const [uploading, setUploading] = useState(false);
+
+  const onFile = async (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    setUploading(true);
+    try {
+      const url = await uploadFile(file);
+      onChange(normalizeAssetUrl(url) ?? url);
+      toast("Ficheiro carregado.");
+    } catch (e) {
+      toast(e instanceof Error ? e.message : "Erro ao carregar ficheiro", "err");
+    } finally {
+      setUploading(false);
+      event.target.value = "";
+    }
+  };
+
+  const isPdf = value.toLowerCase().endsWith(".pdf");
+
+  return (
+    <div className="space-y-2">
+      <div className="flex items-center gap-2">
+        <input
+          type="text"
+          className={inputCls}
+          value={value}
+          placeholder={placeholder}
+          onChange={(e) => onChange(normalizeAssetUrl(e.target.value) ?? e.target.value)}
+        />
+        <label className="inline-flex cursor-pointer items-center gap-2 rounded-lg border border-gray-200 bg-white px-2.5 py-2 text-xs font-medium text-[#0F2B5B] hover:bg-gray-50 dark:border-white/10 dark:bg-[#0F2B5B]/20 dark:text-white">
+          <Upload size={12} />
+          {uploading ? "A enviar..." : "Upload"}
+          <input type="file" accept=".pdf,image/*" className="hidden" onChange={onFile} />
+        </label>
+      </div>
+      {value ? (
+        <div className="flex h-12 w-full items-center justify-center rounded-lg border border-dashed border-gray-300 bg-gray-50 px-2 text-[11px] font-medium text-gray-600 dark:border-white/10 dark:bg-white/5 dark:text-white/65">
+          {isPdf ? "PDF" : "Ficheiro"}
+        </div>
+      ) : null}
     </div>
   );
 }

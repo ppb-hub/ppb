@@ -446,6 +446,7 @@ export interface HeroImageOut {
   alt_en?: string | null;
   ordem: number;
   ativo: boolean;
+  home_page?: boolean | null;
   created_at: string;
   updated_at?: string | null;
 }
@@ -458,6 +459,7 @@ export interface HeroImageIn {
   alt_en?: string | null;
   ordem?: number;
   ativo?: boolean;
+  home_page?: boolean;
 }
 
 export interface HeroImageUpdate {
@@ -468,6 +470,7 @@ export interface HeroImageUpdate {
   alt_en?: string | null;
   ordem?: number;
   ativo?: boolean;
+  home_page?: boolean;
 }
 
 export interface HeroImageRow {
@@ -481,4 +484,5 @@ export interface HeroImageRow {
   ordem?: number;
   ativo?: boolean;
   size_kb?: number;
+  home_page?: boolean;
 }

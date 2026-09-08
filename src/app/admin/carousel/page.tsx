@@ -47,7 +47,11 @@ export default function AdminHeroPage() {
     setError(null);
     try {
       const list = await listHeroImages();
-      setRows((list ?? []).slice().sort((a, b) => (a.ordem ?? 0) - (b.ordem ?? 0) || a.id - b.id));
+      const normalized = (list ?? []).map((item) => ({
+        ...item,
+        home_page: item.home_page ?? false,
+      }));
+      setRows(normalized.slice().sort((a, b) => (a.ordem ?? 0) - (b.ordem ?? 0) || a.id - b.id));
       setMode("db");
     } catch (e) {
       if (e instanceof ApiError && (e.status === 404 || e.status === 405)) {
@@ -77,6 +81,7 @@ export default function AdminHeroPage() {
         alt_en: row.alt_en?.trim() || null,
         ordem: row.ordem,
         ativo: row.ativo,
+        home_page: row.home_page ?? false,
       });
       toast(`Slide ${row.id} guardado.`);
     } catch (e) {
@@ -98,7 +103,13 @@ export default function AdminHeroPage() {
     try {
       await Promise.all(
         [reindexed[index], reindexed[j]].map((row) =>
-          updateHeroImage(row.id, { alt_pt: row.alt_pt ?? null, alt_en: row.alt_en ?? null, ordem: row.ordem, ativo: row.ativo ?? true })
+          updateHeroImage(row.id, {
+            alt_pt: row.alt_pt ?? null,
+            alt_en: row.alt_en ?? null,
+            ordem: row.ordem,
+            ativo: row.ativo ?? true,
+            home_page: row.home_page ?? false,
+          })
         )
       );
     } catch (e) {
@@ -133,10 +144,10 @@ export default function AdminHeroPage() {
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h1 className="text-2xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat']">Imagens do Hero</h1>
-          <p className="text-xs text-gray-500 dark:text-white/50 mt-0.5">
+          {/* <p className="text-xs text-gray-500 dark:text-white/50 mt-0.5">
             Upload persistido na base de dados (<span className="font-mono">hero_images</span>) · servido em{" "}
             <span className="font-mono">/uploads/hero/&#123;id&#125;</span> · rotação de 5 s na home.
-          </p>
+          </p> */}
         </div>
       </div>
 
@@ -228,6 +239,7 @@ function UploadCard({ onUploaded }: { onUploaded: () => void }) {
       form.append("file", file);
       if (altPt.trim()) form.append("alt_pt", altPt.trim());
       if (altEn.trim()) form.append("alt_en", altEn.trim());
+      form.append("home_page", "true");
       await createHeroImage(form);
       toast("Imagem enviada e guardada na base de dados.");
       setFile(null);
@@ -275,7 +287,7 @@ function UploadCard({ onUploaded }: { onUploaded: () => void }) {
           </div>
           {file ? <p className="text-[11px] text-gray-400 truncate">{file.name} · {formatSizeKb(Math.round(file.size / 1024))}</p> : null}
           <Btn type="submit" loading={busy} disabled={!file}>
-            <ImagePlus size={15} aria-hidden="true" /> Enviar e adicionar ao rotativo
+            <ImagePlus size={15} aria-hidden="true" /> Enviar
           </Btn>
         </div>
       </form>
@@ -345,9 +357,9 @@ function RowEditor({
             </div>
           </div>
           <div className="flex items-center justify-between gap-3">
-            <div className="flex items-center gap-2">
-              <Toggle checked={row.ativo ?? true} onChange={(v) => onChange({ ativo: v })} label="Visível na home" />
-              <span className="text-sm text-gray-600 dark:text-white/70">Visível na home</span>
+            <div className="flex flex-wrap items-center gap-3">
+              <Toggle checked={row.ativo ?? true} onChange={(v) => onChange({ ativo: v })} label="Ativa" />
+              <Toggle checked={row.home_page ?? false} onChange={(v) => onChange({ home_page: v })} label="Na home page" />
             </div>
             <Btn size="sm" onClick={onSave} loading={busy}>
               <Save size={13} aria-hidden="true" /> Guardar

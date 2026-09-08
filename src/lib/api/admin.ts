@@ -159,6 +159,13 @@ export const markMessage = (id: number, kind: "read" | "spam", value: boolean) =
 export const listHeroImages = () => call<HeroImageOut[]>("/api/admin/hero-images");
 export const createHeroImage = (data: FormData) =>
   call<HeroImageOut>("/api/admin/hero-images", { method: "POST", body: data });
+export const uploadFile = async (file: File) => {
+  const formData = new FormData();
+  formData.append("file", file);
+  const { url } = await call<{ url: string }>("/api/admin/uploads", { method: "POST", body: formData });
+  return url;
+};
+export const uploadImage = async (file: File) => uploadFile(file);
 export const updateHeroImage = (id: number, data: HeroImageUpdate) =>
   call<HeroImageOut>(`/api/admin/hero-images/${id}`, { method: "PUT", body: data });
 export const deleteHeroImage = (id: number) =>

@@ -173,7 +173,7 @@ export const testimonialsConfig: ResourceConfig<TestimonialOut> = {
     { key: "company", label: "Empresa", required: true, half: true },
     { key: "text_pt", label: "Texto (PT)", type: "textarea", required: true },
     { key: "text_en", label: "Texto (EN)", type: "textarea", required: true },
-    { key: "photo", label: "Foto (URL)", half: true },
+    { key: "photo", label: "Foto", type: "image", half: true },
     { key: "ordem", label: "Ordem", type: "number", half: true },
     { key: "ativo", label: "Ativo", type: "boolean", half: true },
   ],
@@ -191,7 +191,7 @@ export const investorDocsConfig: ResourceConfig<InvestorDocumentOut> = {
   fields: [
     { key: "name_pt", label: "Nome (PT)", required: true },
     { key: "name_en", label: "Nome (EN)", required: true },
-    { key: "file_url", label: "URL do ficheiro", required: true },
+    { key: "file_url", label: "URL do ficheiro", type: "file", required: true },
     { key: "size_kb", label: "Tamanho (KB)", type: "number", half: true },
     { key: "ordem", label: "Ordem", type: "number", half: true },
     { key: "ativo", label: "Ativo", type: "boolean", half: true },
