@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
+import { memo, useCallback, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { CheckCircle2, Clock, Loader2, Mail, MapPin, Phone, AlertCircle } from "lucide-react";
 import { browserFetch } from "@/lib/api/server-fetch";
@@ -14,7 +14,39 @@ function newCaptcha() {
   return { a: 1 + Math.floor(Math.random() * 9), b: 1 + Math.floor(Math.random() * 9) };
 }
 
-export default function ContactForm({
+const Field = memo(function Field({
+  label,
+  required,
+  error,
+  children,
+}: {
+  label: string;
+  required?: boolean;
+  error?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div>
+      <label className="block text-sm font-medium text-[#0F2B5B] dark:text-white mb-1.5">
+        {label}
+        {required && <span className="text-red-500 ml-0.5">*</span>}
+      </label>
+      {children}
+      {error ? (
+        <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
+          <AlertCircle size={11} aria-hidden="true" /> {error}
+        </p>
+      ) : null}
+    </div>
+  );
+});
+
+const inputClass = (err?: string) =>
+  `w-full px-4 py-2.5 border rounded-xl text-sm bg-white dark:bg-white/5 text-[#1a2332] dark:text-white focus:outline-none transition-colors ${
+    err ? "border-red-400 focus:border-red-500" : "border-gray-200 dark:border-white/20 focus:border-[#E8821A]"
+  }`;
+
+const ContactForm = memo(function ContactForm({
   locale,
   ui,
   municipalities,
@@ -53,14 +85,14 @@ export default function ContactForm({
 
   const expected = captcha.a + captcha.b;
 
-  const update = (key: keyof typeof form, value: string | boolean) => {
+  const update = useCallback((key: keyof typeof form, value: string | boolean) => {
     setForm((prev) => ({ ...prev, [key]: value }));
     setErrors((prev) => {
       const n = { ...prev };
       delete n[key];
       return n;
     });
-  };
+  }, []);
 
   const validate = () => {
     const e: Record<string, string> = {};
@@ -126,26 +158,6 @@ export default function ContactForm({
 
   const selectedProject = projects.find((p) => String(p.id) === form.project_id);
 
-  const Field = ({ label, required, error, children }: { label: string; required?: boolean; error?: string; children: React.ReactNode }) => (
-    <div>
-      <label className="block text-sm font-medium text-[#0F2B5B] dark:text-white mb-1.5">
-        {label}
-        {required && <span className="text-red-500 ml-0.5">*</span>}
-      </label>
-      {children}
-      {error ? (
-        <p className="mt-1 text-xs text-red-500 flex items-center gap-1">
-          <AlertCircle size={11} aria-hidden="true" /> {error}
-        </p>
-      ) : null}
-    </div>
-  );
-
-  const inputClass = (err?: string) =>
-    `w-full px-4 py-2.5 border rounded-xl text-sm bg-white dark:bg-white/5 text-[#1a2332] dark:text-white focus:outline-none transition-colors ${
-      err ? "border-red-400 focus:border-red-500" : "border-gray-200 dark:border-white/20 focus:border-[#E8821A]"
-    }`;
-
   if (submitted) {
     return (
       <div className="flex flex-col items-center justify-center py-20 text-center">
@@ -174,19 +186,19 @@ export default function ContactForm({
         <form onSubmit={handleSubmit} noValidate className="space-y-5">
           <div className="grid sm:grid-cols-2 gap-5">
             <Field label={ui.contact.name} required error={errors.name}>
-              <input type="text" value={form.name} onChange={(e) => update("name", e.target.value)} className={inputClass(errors.name)} placeholder={ui.contact.namePh} autoComplete="name" />
+              <input name="name" type="text" value={form.name} onChange={(e) => update("name", e.target.value)} className={inputClass(errors.name)} placeholder={ui.contact.namePh} autoComplete="name" />
             </Field>
             <Field label={ui.contact.email} required error={errors.email}>
-              <input type="email" value={form.email} onChange={(e) => update("email", e.target.value)} className={inputClass(errors.email)} placeholder={ui.contact.emailPh} autoComplete="email" />
+              <input name="email" type="email" value={form.email} onChange={(e) => update("email", e.target.value)} className={inputClass(errors.email)} placeholder={ui.contact.emailPh} autoComplete="email" />
             </Field>
           </div>
 
           <div className="grid sm:grid-cols-2 gap-5">
             <Field label={ui.contact.phone} required error={errors.phone}>
-              <input type="tel" value={form.phone} onChange={(e) => update("phone", e.target.value)} className={inputClass(errors.phone)} placeholder={ui.contact.phonePh} autoComplete="tel" />
+              <input name="phone" type="tel" value={form.phone} onChange={(e) => update("phone", e.target.value)} className={inputClass(errors.phone)} placeholder={ui.contact.phonePh} autoComplete="tel" />
             </Field>
             <Field label={ui.contact.company} error={errors.company}>
-              <input type="text" value={form.company} onChange={(e) => update("company", e.target.value)} className={inputClass(errors.company)} placeholder={ui.contact.companyPh} autoComplete="organization" />
+              <input name="company" type="text" value={form.company} onChange={(e) => update("company", e.target.value)} className={inputClass(errors.company)} placeholder={ui.contact.companyPh} autoComplete="organization" />
             </Field>
           </div>
 
@@ -227,6 +239,7 @@ export default function ContactForm({
 
           <Field label={ui.contact.message} required error={errors.message}>
             <textarea
+              name="message"
               value={form.message}
               onChange={(e) => update("message", e.target.value)}
               rows={5}
@@ -242,7 +255,7 @@ export default function ContactForm({
           {/* Honeypot invisível (campo `website` da API) */}
           <div className="hidden" aria-hidden="true">
             <label htmlFor="website">Website</label>
-            <input id="website" type="text" tabIndex={-1} autoComplete="off" value={form.website} onChange={(e) => update("website", e.target.value)} />
+            <input name="website" id="website" type="text" tabIndex={-1} autoComplete="off" value={form.website} onChange={(e) => update("website", e.target.value)} />
           </div>
 
           {/* Captcha matemático — o par resposta/esperado vai no body (ContactCreate) */}
@@ -252,6 +265,7 @@ export default function ContactForm({
                 {captcha.a} + {captcha.b} =
               </span>
               <input
+                name="math"
                 type="number"
                 inputMode="numeric"
                 value={form.math}
@@ -265,7 +279,7 @@ export default function ContactForm({
 
           <div>
             <label className={cx("flex items-start gap-2.5 cursor-pointer text-sm", errors.privacy ? "text-red-500" : "text-gray-600 dark:text-white/70")}>
-              <input type="checkbox" checked={form.privacy} onChange={(e) => update("privacy", e.target.checked)} className="accent-[#E8821A] mt-0.5" />
+              <input name="privacy" type="checkbox" checked={form.privacy} onChange={(e) => update("privacy", e.target.checked)} className="accent-[#E8821A] mt-0.5" />
               <span>
                 {ui.contact.privacy}{" "}
                 <Link href={localizedHref(locale, "privacy")} className="text-[#E8821A] underline">
@@ -353,4 +367,6 @@ export default function ContactForm({
       </div>
     </div>
   );
-}
+});
+
+export default ContactForm;

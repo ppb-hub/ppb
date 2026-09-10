@@ -148,7 +148,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
               </section>
             )}
 
-            <section className="mb-8" aria-labelledby="timeline">
+            {/* <section className="mb-8" aria-labelledby="timeline">
               <h2 id="timeline" className="text-xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat'] mb-4">{ui.detail.timeline}</h2>
               <div className="space-y-0">
                 {timeline.map((t, i) => (
@@ -171,7 +171,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                   </div>
                 ))}
               </div>
-            </section>
+            </section> */}
 
             {docs.length > 0 && (
               <section className="mb-8" aria-labelledby="docs">
