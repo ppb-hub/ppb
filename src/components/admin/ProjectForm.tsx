@@ -49,6 +49,7 @@ interface FormState {
   cover_alt_en: string;
   ordem: number;
   ativo: boolean;
+  is_opportunity: boolean;
   objectives: Row[];
   images: Row[];
   documents: Row[];
@@ -84,6 +85,7 @@ const emptyForm = (): FormState => ({
   cover_alt_en: "",
   ordem: 0,
   ativo: true,
+  is_opportunity: false,
   objectives: [],
   images: [],
   documents: [],
@@ -156,6 +158,7 @@ export default function ProjectForm({ projectId }: { projectId?: number }) {
           cover_alt_en: p.cover_alt_en ?? "",
           ordem: Number((p as unknown as { ordem?: number }).ordem ?? 0),
           ativo: !!p.ativo,
+          is_opportunity: !!p.is_opportunity,
           objectives: withKeys((p.objectives ?? []).map((o) => ({ text_pt: o.text_pt, text_en: o.text_en }))),
           images: withKeys((p.images ?? []).map((i) => ({ url: i.url, alt_pt: i.alt_pt ?? "", alt_en: i.alt_en ?? "" }))),
           documents: withKeys((p.documents ?? []).map((d) => ({ name_pt: d.name_pt, name_en: d.name_en, file_url: d.file_url, size_kb: d.size_kb ?? "" }))),
@@ -202,6 +205,7 @@ export default function ProjectForm({ projectId }: { projectId?: number }) {
     cover_alt_en: form.cover_alt_en.trim() || null,
     ordem: Number(form.ordem) || 0,
     ativo: form.ativo,
+    is_opportunity: form.is_opportunity,
     objectives: form.objectives.map((o, i) => ({ text_pt: String(o.text_pt ?? ""), text_en: String(o.text_en ?? ""), ordem: i + 1 })),
     images: form.images.map((img, i) => ({ url: String(img.url ?? ""), alt_pt: String(img.alt_pt ?? "") || null, alt_en: String(img.alt_en ?? "") || null, ordem: i + 1 })),
     documents: form.documents.map((d, i) => ({
@@ -369,6 +373,11 @@ export default function ProjectForm({ projectId }: { projectId?: number }) {
             <label className="flex items-center gap-2 text-sm text-gray-600 dark:text-white/70 cursor-pointer">
               <input type="checkbox" className="accent-[#E8821A]" checked={form.ativo} onChange={(e) => set("ativo", e.target.checked)} />
               Publicado
+            </label>
+            
+            <label className="flex items-center gap-2 text-sm text-gray-600 dark:text-white/70 cursor-pointer">
+              <input type="checkbox" className="accent-[#E8821A]" checked={form.is_opportunity} onChange={(e) => set("is_opportunity", e.target.checked)} />
+              Oportunidade
             </label>
           </div>
         </div>

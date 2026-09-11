@@ -147,6 +147,7 @@ export interface ProjectCreate {
   cover_alt_en?: string | null;
   ordem?: number;
   ativo?: boolean;
+  is_opportunity?: boolean;
   objectives?: ObjectiveIn[];
   images?: ImageIn[];
   documents?: DocumentIn[];
