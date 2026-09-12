@@ -27,7 +27,7 @@ export function ApiErrorBox({
       className={`bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900/50 rounded-2xl text-center ${compact ? "p-5" : "p-10"}`}
     >
       <AlertTriangle size={compact ? 22 : 32} className="mx-auto mb-3 text-red-500" aria-hidden="true" />
-      <p className={`font-semibold text-[#0F2B5B] dark:text-white ${compact ? "text-sm" : "text-lg"}`}>
+      <p className={`font-semibold text-[#850b0b] dark:text-white ${compact ? "text-sm" : "text-lg"}`}>
         {title ?? ui.common.apiErrorTitle}
       </p>
       <p className="text-gray-500 dark:text-white/60 text-sm mt-1 max-w-md mx-auto">

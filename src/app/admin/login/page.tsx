@@ -46,7 +46,7 @@ function LoginForm() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#0F2B5B] px-4 relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center bg-[#850b0b] px-4 relative overflow-hidden">
       <div className="absolute inset-0 opacity-[0.07] pointer-events-none" aria-hidden="true">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/media/hero-benguela.jpg" alt="" className="w-full h-full object-cover" />
@@ -54,20 +54,20 @@ function LoginForm() {
       <div className="relative w-full max-w-md">
         <div className="text-center mb-8">
           <div className="inline-flex w-14 h-14 rounded-2xl bg-[#D4A843] items-center justify-center mb-4 shadow-lg">
-            <span className="text-[#0F2B5B] font-bold font-['Montserrat']">GPB</span>
+            <span className="text-[#850b0b] font-bold font-['Montserrat']">GPB</span>
           </div>
           <h1 className="text-white font-bold text-xl font-['Montserrat']">Painel Administrativo</h1>
           <p className="text-white/60 text-sm mt-1">Portal de Projectos de Benguela</p>
         </div>
 
-        <form onSubmit={submit} className="bg-white dark:bg-[#0F2B5B]/40 rounded-2xl p-6 sm:p-8 shadow-2xl space-y-4">
+        <form onSubmit={submit} className="bg-white dark:bg-[#850b0b]/40 rounded-2xl p-6 sm:p-8 shadow-2xl space-y-4">
           {error && (
             <div role="alert" className="bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900/50 text-red-700 dark:text-red-300 text-sm rounded-xl px-4 py-3">
               {error}
             </div>
           )}
           <div>
-            <label htmlFor="username" className="block text-sm font-medium text-[#0F2B5B] dark:text-white mb-1.5">Utilizador</label>
+            <label htmlFor="username" className="block text-sm font-medium text-[#850b0b] dark:text-white mb-1.5">Utilizador</label>
             <div className="relative">
               <User size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" aria-hidden="true" />
               <input
@@ -82,7 +82,7 @@ function LoginForm() {
             </div>
           </div>
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-[#0F2B5B] dark:text-white mb-1.5">Palavra-passe</label>
+            <label htmlFor="password" className="block text-sm font-medium text-[#850b0b] dark:text-white mb-1.5">Palavra-passe</label>
             <div className="relative">
               <Lock size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" aria-hidden="true" />
               <input

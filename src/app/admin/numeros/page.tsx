@@ -64,7 +64,7 @@ export default function AdminStatsPage() {
   return (
     <div className="space-y-5">
       <div>
-        <h1 className="text-2xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat']">Números da Homepage</h1>
+        <h1 className="text-2xl font-bold text-[#850b0b] dark:text-white font-['Montserrat']">Números da Homepage</h1>
         <p className="text-xs text-gray-500 dark:text-white/50 mt-0.5">
           Os valores mostrados na secção “Números da Província”.
         </p>
@@ -80,7 +80,7 @@ export default function AdminStatsPage() {
           <Table head={["Rótulo (PT)", "Valor", "Sufixo", "Visível", "Ações"]}>
             {rows.map((s) => (
               <tr key={s.id} className="hover:bg-gray-50/60 dark:hover:bg-white/5">
-                <td className="py-2.5 pr-4 font-medium text-[#0F2B5B] dark:text-white">{s.label_pt}</td>
+                <td className="py-2.5 pr-4 font-medium text-[#850b0b] dark:text-white">{s.label_pt}</td>
                 <td className="py-2.5 pr-4">{s.value}</td>
                 <td className="py-2.5 pr-4 text-gray-500 dark:text-white/60 text-xs">{s.suffix_pt || "—"}</td>
                 <td className="py-2.5 pr-4">

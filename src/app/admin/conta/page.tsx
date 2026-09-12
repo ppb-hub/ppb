@@ -13,7 +13,7 @@ export default function AdminAccountPage() {
   return (
     <div className="space-y-6 max-w-3xl">
       <div>
-        <h1 className="text-2xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat']">Conta & Acessos</h1>
+        <h1 className="text-2xl font-bold text-[#850b0b] dark:text-white font-['Montserrat']">Conta & Acessos</h1>
         <p className="text-xs text-gray-500 dark:text-white/50 mt-0.5">Gestão da sessão e utilizadores administrativos suportados pela API.</p>
       </div>
 
@@ -21,11 +21,11 @@ export default function AdminAccountPage() {
         <dl className="grid sm:grid-cols-2 gap-4 text-sm">
           <div>
             <dt className="text-[10px] uppercase tracking-wide text-gray-400 font-semibold">Utilizador</dt>
-            <dd className="text-[#0F2B5B] dark:text-white font-medium">{user?.username ?? "—"}</dd>
+            <dd className="text-[#850b0b] dark:text-white font-medium">{user?.username ?? "—"}</dd>
           </div>
           <div>
             <dt className="text-[10px] uppercase tracking-wide text-gray-400 font-semibold">E-mail</dt>
-            <dd className="text-[#0F2B5B] dark:text-white">{user?.email ?? "—"}</dd>
+            <dd className="text-[#850b0b] dark:text-white">{user?.email ?? "—"}</dd>
           </div>
           <div>
             <dt className="text-[10px] uppercase tracking-wide text-gray-400 font-semibold">Estado</dt>
@@ -33,7 +33,7 @@ export default function AdminAccountPage() {
           </div>
           <div>
             <dt className="text-[10px] uppercase tracking-wide text-gray-400 font-semibold">Privilégios</dt>
-            <dd className="text-[#0F2B5B] dark:text-white">{user?.is_superuser ? "Superutilizador" : "Administrador"}</dd>
+            <dd className="text-[#850b0b] dark:text-white">{user?.is_superuser ? "Superutilizador" : "Administrador"}</dd>
           </div>
         </dl>
       </Card>

@@ -46,7 +46,7 @@ export default async function ContactPage({
   return (
     <div className="min-h-screen bg-white dark:bg-[#0a1628]">
       {/* Header */}
-      <div className="bg-[#0F2B5B] py-16 px-4 sm:px-6">
+      <div className="bg-[#850b0b] py-16 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto text-center">
           <Breadcrumbs locale={locale} ui={ui} items={[{ label: ui.nav.contact }]} centered />
           <h1 className="text-3xl sm:text-4xl font-bold text-white font-['Montserrat'] mb-3">{ui.contact.title}</h1>

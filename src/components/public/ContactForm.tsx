@@ -27,7 +27,7 @@ const Field = memo(function Field({
 }) {
   return (
     <div>
-      <label className="block text-sm font-medium text-[#0F2B5B] dark:text-white mb-1.5">
+      <label className="block text-sm font-medium text-[#850b0b] dark:text-white mb-1.5">
         {label}
         {required && <span className="text-red-500 ml-0.5">*</span>}
       </label>
@@ -164,7 +164,7 @@ const ContactForm = memo(function ContactForm({
         <div className="w-20 h-20 bg-[#27AE60]/10 rounded-full flex items-center justify-center mb-5">
           <CheckCircle2 size={40} className="text-[#27AE60]" aria-hidden="true" />
         </div>
-        <h2 className="text-2xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat'] mb-3">{ui.contact.successTitle}</h2>
+        <h2 className="text-2xl font-bold text-[#850b0b] dark:text-white font-['Montserrat'] mb-3">{ui.contact.successTitle}</h2>
         <p className="text-gray-600 dark:text-white/70 max-w-md">{ui.contact.successText}</p>
         <Link href={localizedHref(locale, "projects")} className="mt-6 inline-flex items-center gap-2 bg-[#E8821A] hover:bg-[#c96d10] text-white font-medium px-6 py-3 rounded-xl transition-colors">
           {ui.contact.successCta}
@@ -261,7 +261,7 @@ const ContactForm = memo(function ContactForm({
           {/* Captcha matemático — o par resposta/esperado vai no body (ContactCreate) */}
           <Field label={ui.contact.captcha} required error={errors.math}>
             <div className="flex items-center gap-3">
-              <span className="text-sm font-medium text-[#0F2B5B] dark:text-white bg-[#F8F9FA] dark:bg-white/10 px-4 py-2.5 rounded-xl border border-gray-200 dark:border-white/20">
+              <span className="text-sm font-medium text-[#850b0b] dark:text-white bg-[#F8F9FA] dark:bg-white/10 px-4 py-2.5 rounded-xl border border-gray-200 dark:border-white/20">
                 {captcha.a} + {captcha.b} =
               </span>
               <input
@@ -309,49 +309,49 @@ const ContactForm = memo(function ContactForm({
 
       {/* Sidebar de contactos — valores de /api/settings quando existirem */}
       <div className="space-y-5">
-        <div className="bg-[#F8F9FA] dark:bg-[#0F2B5B]/30 rounded-2xl p-6 border border-gray-100 dark:border-white/10">
-          <h3 className="font-bold text-[#0F2B5B] dark:text-white font-['Montserrat'] mb-5">{ui.contact.sidebarTitle}</h3>
+        <div className="bg-[#F8F9FA] dark:bg-[#850b0b]/30 rounded-2xl p-6 border border-gray-100 dark:border-white/10">
+          <h3 className="font-bold text-[#850b0b] dark:text-white font-['Montserrat'] mb-5">{ui.contact.sidebarTitle}</h3>
           <div className="space-y-4">
             <a href={`tel:${sidebar.phone.replace(/[^\d+]/g, "")}`} className="flex items-start gap-3 group">
-              <span className="w-9 h-9 bg-[#0F2B5B] rounded-lg flex items-center justify-center shrink-0">
+              <span className="w-9 h-9 bg-[#850b0b] rounded-lg flex items-center justify-center shrink-0">
                 <Phone size={15} className="text-[#D4A843]" aria-hidden="true" />
               </span>
               <span>
                 <span className="block text-xs text-gray-400 dark:text-white/50">{ui.contact.phoneLabel}</span>
-                <span className="block text-sm font-medium text-[#0F2B5B] dark:text-white group-hover:text-[#E8821A] transition-colors">{sidebar.phone}</span>
+                <span className="block text-sm font-medium text-[#850b0b] dark:text-white group-hover:text-[#E8821A] transition-colors">{sidebar.phone}</span>
               </span>
             </a>
             <a href={`mailto:${sidebar.email}`} className="flex items-start gap-3 group">
-              <span className="w-9 h-9 bg-[#0F2B5B] rounded-lg flex items-center justify-center shrink-0">
+              <span className="w-9 h-9 bg-[#850b0b] rounded-lg flex items-center justify-center shrink-0">
                 <Mail size={15} className="text-[#D4A843]" aria-hidden="true" />
               </span>
               <span>
                 <span className="block text-xs text-gray-400 dark:text-white/50">{ui.contact.emailLabel}</span>
-                <span className="block text-sm font-medium text-[#0F2B5B] dark:text-white group-hover:text-[#E8821A] transition-colors">{sidebar.email}</span>
+                <span className="block text-sm font-medium text-[#850b0b] dark:text-white group-hover:text-[#E8821A] transition-colors">{sidebar.email}</span>
               </span>
             </a>
             <div className="flex items-start gap-3">
-              <span className="w-9 h-9 bg-[#0F2B5B] rounded-lg flex items-center justify-center shrink-0">
+              <span className="w-9 h-9 bg-[#850b0b] rounded-lg flex items-center justify-center shrink-0">
                 <MapPin size={15} className="text-[#D4A843]" aria-hidden="true" />
               </span>
               <span>
                 <span className="block text-xs text-gray-400 dark:text-white/50">{ui.contact.addressLabel}</span>
-                <span className="block text-sm text-[#0F2B5B] dark:text-white leading-snug">{sidebar.address}</span>
+                <span className="block text-sm text-[#850b0b] dark:text-white leading-snug">{sidebar.address}</span>
               </span>
             </div>
             <div className="flex items-start gap-3">
-              <span className="w-9 h-9 bg-[#0F2B5B] rounded-lg flex items-center justify-center shrink-0">
+              <span className="w-9 h-9 bg-[#850b0b] rounded-lg flex items-center justify-center shrink-0">
                 <Clock size={15} className="text-[#D4A843]" aria-hidden="true" />
               </span>
               <span>
                 <span className="block text-xs text-gray-400 dark:text-white/50">{ui.contact.hoursLabel}</span>
-                <span className="block text-sm text-[#0F2B5B] dark:text-white">{sidebar.hours}</span>
+                <span className="block text-sm text-[#850b0b] dark:text-white">{sidebar.hours}</span>
               </span>
             </div>
           </div>
         </div>
 
-        <div className="rounded-2xl overflow-hidden h-48 bg-[#0F2B5B]/10 dark:bg-white/5 flex items-center justify-center border border-gray-100 dark:border-white/10">
+        <div className="rounded-2xl overflow-hidden h-48 bg-[#850b0b]/10 dark:bg-white/5 flex items-center justify-center border border-gray-100 dark:border-white/10">
           <div className="text-center text-gray-400 dark:text-white/40">
             <MapPin size={28} className="mx-auto mb-2 text-[#E8821A]" aria-hidden="true" />
             <p className="text-sm">{ui.contact.mapTitle}</p>
@@ -359,7 +359,7 @@ const ContactForm = memo(function ContactForm({
           </div>
         </div>
 
-        <div className="bg-[#0F2B5B] rounded-2xl p-5 text-center">
+        <div className="bg-[#850b0b] rounded-2xl p-5 text-center">
           <p className="text-white/70 text-sm mb-1">{ui.contact.responseTime}</p>
           <p className="text-[#D4A843] font-bold font-['Montserrat'] text-lg">{ui.contact.responseValue}</p>
           <p className="text-white/50 text-xs mt-1">{ui.contact.responseNote}</p>

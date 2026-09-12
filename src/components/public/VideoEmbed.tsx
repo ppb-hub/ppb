@@ -36,7 +36,7 @@ export default function VideoEmbed({
 
   if (external && !allowed) {
     return (
-      <div className="rounded-2xl overflow-hidden bg-[#0F2B5B]/10 dark:bg-white/5 aspect-video relative border border-gray-100 dark:border-white/10">
+      <div className="rounded-2xl overflow-hidden bg-[#850b0b]/10 dark:bg-white/5 aspect-video relative border border-gray-100 dark:border-white/10">
         {thumbnail ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img src={thumbnail} alt="" className="absolute inset-0 w-full h-full object-cover opacity-60" aria-hidden="true" loading="lazy" />
@@ -56,7 +56,7 @@ export default function VideoEmbed({
 
   if (external) {
     return (
-      <div className="rounded-2xl overflow-hidden bg-[#0F2B5B]/10 dark:bg-white/5 aspect-video relative border border-gray-100 dark:border-white/10">
+      <div className="rounded-2xl overflow-hidden bg-[#850b0b]/10 dark:bg-white/5 aspect-video relative border border-gray-100 dark:border-white/10">
         <iframe
           className="absolute inset-0 w-full h-full"
           src={external.kind === "yt" ? `https://www.youtube-nocookie.com/embed/${external.id}?rel=0` : `https://player.vimeo.com/video/${external.id}`}
@@ -71,7 +71,7 @@ export default function VideoEmbed({
 
   // Ficheiro de vídeo servido pelo próprio backend
   return (
-    <div className="rounded-2xl overflow-hidden bg-[#0F2B5B]/10 dark:bg-white/5 aspect-video relative border border-gray-100 dark:border-white/10 group">
+    <div className="rounded-2xl overflow-hidden bg-[#850b0b]/10 dark:bg-white/5 aspect-video relative border border-gray-100 dark:border-white/10 group">
       <video src={url} poster={thumbnail ?? undefined} controls playsInline preload="metadata" className="absolute inset-0 w-full h-full" aria-label={title}>
         {title}
       </video>

@@ -143,7 +143,7 @@ export default function AdminHeroPage() {
     <div className="space-y-5 max-w-4xl">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat']">Imagens do Hero</h1>
+          <h1 className="text-2xl font-bold text-[#850b0b] dark:text-white font-['Montserrat']">Imagens do Hero</h1>
           {/* <p className="text-xs text-gray-500 dark:text-white/50 mt-0.5">
             Upload persistido na base de dados (<span className="font-mono">hero_images</span>) · servido em{" "}
             <span className="font-mono">/uploads/hero/&#123;id&#125;</span> · rotação de 5 s na home.
@@ -322,10 +322,10 @@ function RowEditor({
       title={`Slide ${position}`}
       actions={
         <div className="flex items-center gap-1">
-          <button onClick={() => onMove(-1)} disabled={position === 1} aria-label="Mover para cima" className="p-1.5 rounded-lg text-gray-500 hover:text-[#0F2B5B] hover:bg-gray-100 dark:hover:bg-white/10 disabled:opacity-30 transition-colors">
+          <button onClick={() => onMove(-1)} disabled={position === 1} aria-label="Mover para cima" className="p-1.5 rounded-lg text-gray-500 hover:text-[#850b0b] hover:bg-gray-100 dark:hover:bg-white/10 disabled:opacity-30 transition-colors">
             <ArrowUp size={14} />
           </button>
-          <button onClick={() => onMove(1)} disabled={position === total} aria-label="Mover para baixo" className="p-1.5 rounded-lg text-gray-500 hover:text-[#0F2B5B] hover:bg-gray-100 dark:hover:bg-white/10 disabled:opacity-30 transition-colors">
+          <button onClick={() => onMove(1)} disabled={position === total} aria-label="Mover para baixo" className="p-1.5 rounded-lg text-gray-500 hover:text-[#850b0b] hover:bg-gray-100 dark:hover:bg-white/10 disabled:opacity-30 transition-colors">
             <ArrowDown size={14} />
           </button>
           <button onClick={onDelete} aria-label="Eliminar imagem" className="p-1.5 rounded-lg text-gray-500 hover:text-[#E74C3C] hover:bg-[#E74C3C]/10 transition-colors">

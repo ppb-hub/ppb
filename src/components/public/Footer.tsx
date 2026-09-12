@@ -22,7 +22,7 @@ export default function Footer({ locale, ui, contacts }: { locale: Locale; ui: U
   ];
 
   return (
-    <footer className="bg-[#091d3f] text-white">
+    <footer className="bg-[#850b0b] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
@@ -89,7 +89,7 @@ export default function Footer({ locale, ui, contacts }: { locale: Locale; ui: U
                   rel="noopener noreferrer"
                   className="w-9 h-9 bg-white/10 hover:bg-[#D4A843] rounded-lg flex items-center justify-center transition-colors group"
                 >
-                  <span className="text-white/70 group-hover:text-[#0F2B5B] text-xs font-bold uppercase">{label}</span>
+                  <span className="text-white/70 group-hover:text-[#850b0b] text-xs font-bold uppercase">{label}</span>
                 </a>
               ))}
             </div>

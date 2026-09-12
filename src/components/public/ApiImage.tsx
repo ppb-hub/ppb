@@ -36,7 +36,7 @@ export default function ApiImage({
       <div
         role="img"
         aria-label={alt}
-        className={`h-full w-full bg-gradient-to-br from-[#0F2B5B]/15 via-[#D4A843]/10 to-[#E8821A]/15 dark:from-white/10 dark:via-white/5 dark:to-white/10 flex items-center justify-center ${className ?? ""}`}
+        className={`h-full w-full bg-gradient-to-br from-[#850b0b]/15 via-[#D4A843]/10 to-[#E8821A]/15 dark:from-white/10 dark:via-white/5 dark:to-white/10 flex items-center justify-center ${className ?? ""}`}
       >
         {fallbackLabel ? (
           <span className="text-xs text-gray-400 dark:text-white/40 px-4 text-center">{fallbackLabel}</span>

@@ -47,7 +47,7 @@ export default function AdminDashboard() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat']">Dashboard</h1>
+        <h1 className="text-2xl font-bold text-[#850b0b] dark:text-white font-['Montserrat']">Dashboard</h1>
         <p className="text-sm text-gray-500 dark:text-white/60 mt-1">
           Bem-vindo, <span className="font-semibold text-[#E8821A]">{user?.username}</span>. Estado resumido do portal.
         </p>
@@ -62,12 +62,12 @@ export default function AdminDashboard() {
           { label: "Paralisados", value: data?.stoppedProjects, icon: PauseCircle, tone: "text-[#E74C3C]" },
           { label: "Mensagens por ler", value: data?.unread, icon: Inbox, tone: "text-[#E8821A]" },
         ].map((s) => (
-          <div key={s.label} className="bg-white dark:bg-[#0F2B5B]/30 rounded-2xl border border-gray-100 dark:border-white/10 p-5 flex items-center gap-4">
+          <div key={s.label} className="bg-white dark:bg-[#850b0b]/30 rounded-2xl border border-gray-100 dark:border-white/10 p-5 flex items-center gap-4">
             <span className={`w-11 h-11 rounded-xl bg-gray-50 dark:bg-white/10 flex items-center justify-center ${s.tone}`}>
               <s.icon size={20} aria-hidden="true" />
             </span>
             <span>
-              <span className="block text-2xl font-bold font-['Montserrat'] text-[#0F2B5B] dark:text-white">
+              <span className="block text-2xl font-bold font-['Montserrat'] text-[#850b0b] dark:text-white">
                 {data ? s.value : "—"}
               </span>
               <span className="block text-xs text-gray-500 dark:text-white/50">{s.label}</span>
@@ -82,7 +82,7 @@ export default function AdminDashboard() {
             <ul className="divide-y divide-gray-50 dark:divide-white/5">
               {data.updates.map((u) => (
                 <li key={u.id} className="py-2.5 flex items-center justify-between gap-3">
-                  <span className="text-sm text-[#0F2B5B] dark:text-white line-clamp-1">{u.title_pt}</span>
+                  <span className="text-sm text-[#850b0b] dark:text-white line-clamp-1">{u.title_pt}</span>
                   <span className="text-xs text-gray-400 dark:text-white/40 shrink-0">{u.date}</span>
                 </li>
               ))}
@@ -102,7 +102,7 @@ export default function AdminDashboard() {
               { href: "/admin/catalogos", label: "Catálogos" },
               { href: "/admin/sobre", label: "Página “Sobre”" },
             ].map((l) => (
-              <Link key={l.href} href={l.href} className="block border border-gray-100 dark:border-white/10 rounded-xl px-4 py-3 hover:border-[#E8821A] hover:bg-[#E8821A]/5 transition-colors text-[#0F2B5B] dark:text-white">
+              <Link key={l.href} href={l.href} className="block border border-gray-100 dark:border-white/10 rounded-xl px-4 py-3 hover:border-[#E8821A] hover:bg-[#E8821A]/5 transition-colors text-[#850b0b] dark:text-white">
                 {l.label}
               </Link>
             ))}

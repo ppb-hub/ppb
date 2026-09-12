@@ -61,7 +61,7 @@ export default function Header({ locale, ui }: { locale: Locale; ui: UiStrings }
               style={{width: 280, height: 70}}
             />
             {/* <span className="hidden sm:block">
-              <span className="block text-[#0F2B5B] font-bold text-sm leading-tight font-['Montserrat']">
+              <span className="block text-[#850b0b] font-bold text-sm leading-tight font-['Montserrat']">
                 {ui.brandLine1}
               </span>
               <span className="block text-[#D4A843] text-xs font-medium">{ui.brandLine2}</span>
@@ -78,8 +78,8 @@ export default function Header({ locale, ui }: { locale: Locale; ui: UiStrings }
                   key={link.key}
                   href={href}
                   className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${isActive(href)
-                      ? "text-[#0F2B5B]"
-                      : "text-[#0F2B5B]/80 hover:text-[#0F2B5B]"
+                      ? "text-[#850b0b]"
+                      : "text-[#000]/80 hover:text-[#850b0b]"
                     }`}
                 >
                   {link.label}
@@ -105,14 +105,14 @@ export default function Header({ locale, ui }: { locale: Locale; ui: UiStrings }
                   }}
                   placeholder={ui.search.placeholder}
                   aria-label={ui.search.aria}
-                  className="absolute right-10 top-1/2 -translate-y-1/2 w-56 bg-[#F3F4F6] border border-[#D4A843]/30 text-[#0F2B5B] placeholder-[#0F2B5B]/50 rounded-md px-3 py-1.5 text-sm focus:outline-none focus:border-[#D4A843]"
+                  className="absolute right-10 top-1/2 -translate-y-1/2 w-56 bg-[#F3F4F6] border border-[#D4A843]/30 text-[#850b0b] placeholder-[#850b0b]/50 rounded-md px-3 py-1.5 text-sm focus:outline-none focus:border-[#D4A843]"
                 />
               )}
               <button
                 onClick={() => setSearchOpen(!searchOpen)}
                 aria-label={ui.search.aria}
                 aria-expanded={searchOpen}
-                className="p-2 text-[#0F2B5B]/80 hover:text-[#0F2B5B] hover:bg-[#D4A843]/10 rounded-md transition-colors"
+                className="p-2 text-[#000]/80 hover:text-[#850b0b] hover:bg-[#D4A843]/10 rounded-md transition-colors"
               >
                 <Search size={18} />
               </button>
@@ -122,7 +122,7 @@ export default function Header({ locale, ui }: { locale: Locale; ui: UiStrings }
             <Link
               href={switchLocalePath(pathname, other as Locale)}
               aria-label={other === "en" ? "English" : "Português"}
-              className="hidden sm:inline-flex items-center gap-1.5 px-2 py-2 text-[#0F2B5B]/80 hover:text-[#0F2B5B] hover:bg-[#D4A843]/10 rounded-md transition-colors text-xs font-semibold uppercase"
+              className="hidden sm:inline-flex items-center gap-1.5 px-2 py-2 text-[#000]/80 hover:text-[#850b0b] hover:bg-[#D4A843]/10 rounded-md transition-colors text-xs font-semibold uppercase"
             >
               <Languages size={16} />
               {other}
@@ -131,7 +131,7 @@ export default function Header({ locale, ui }: { locale: Locale; ui: UiStrings }
             {/* <button
               onClick={() => setTheme(isDark ? "light" : "dark")}
               aria-label={isDark ? ui.theme.toLight : ui.theme.toDark}
-              className="p-2 text-[#0F2B5B]/80 hover:text-[#0F2B5B] hover:bg-[#D4A843]/10 rounded-md transition-colors"
+              className="p-2 text-[#850b0b]/80 hover:text-[#850b0b] hover:bg-[#D4A843]/10 rounded-md transition-colors"
               suppressHydrationWarning
             >
               {isDark ? <Sun size={18} /> : <Moon size={18} />}
@@ -139,7 +139,7 @@ export default function Header({ locale, ui }: { locale: Locale; ui: UiStrings }
 
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="md:hidden p-2 text-[#0F2B5B]/80 hover:text-[#0F2B5B]"
+              className="md:hidden p-2 text-[#850b0b]/80 hover:text-[#850b0b]"
               aria-label={menuOpen ? ui.menu.close : ui.menu.open}
               aria-expanded={menuOpen}
             >
@@ -162,8 +162,8 @@ export default function Header({ locale, ui }: { locale: Locale; ui: UiStrings }
                 key={link.key}
                 href={href}
                 className={`px-4 py-2.5 rounded-md text-sm font-medium transition-colors ${isActive(href)
-                    ? "bg-[#D4A843] text-[#0F2B5B]"
-                    : "text-[#0F2B5B]/80 hover:text-[#0F2B5B] hover:bg-[#D4A843]/10"
+                    ? "bg-[#D4A843] text-[#850b0b]"
+                    : "text-[#850b0b]/80 hover:text-[#850b0b] hover:bg-[#D4A843]/10"
                   }`}
               >
                 {link.label}

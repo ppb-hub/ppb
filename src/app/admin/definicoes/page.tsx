@@ -81,7 +81,7 @@ export default function AdminSettingsPage() {
     <div className="space-y-5">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat']">Definições do Site</h1>
+          <h1 className="text-2xl font-bold text-[#850b0b] dark:text-white font-['Montserrat']">Definições do Site</h1>
         </div>
         <Btn onClick={save} loading={saving} disabled={!dirty}>
           <Save size={15} aria-hidden="true" /> Guardar tudo

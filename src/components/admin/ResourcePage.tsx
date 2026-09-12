@@ -138,7 +138,7 @@ export default function ResourcePage<T extends { id: number }>({ config }: { con
     <div className="space-y-5">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat']">{config.name}</h1>
+          <h1 className="text-2xl font-bold text-[#850b0b] dark:text-white font-['Montserrat']">{config.name}</h1>
         </div>
         {config.create && (
           <Btn onClick={openNew}>
@@ -169,7 +169,7 @@ export default function ResourcePage<T extends { id: number }>({ config }: { con
                       ) : typeof v === "boolean" ? (
                         v ? "Sim" : "Não"
                       ) : (
-                        <span className={isTitle ? "font-medium text-[#0F2B5B] dark:text-white" : "text-gray-500 dark:text-white/60"}>
+                        <span className={isTitle ? "font-medium text-[#850b0b] dark:text-white" : "text-gray-500 dark:text-white/60"}>
                           {renderCell(v)}
                         </span>
                       )}
@@ -296,7 +296,7 @@ function ImageUploadField({ value, onChange, placeholder }: { value: string; onC
           placeholder={placeholder}
           onChange={(e) => onChange(normalizeAssetUrl(e.target.value) ?? e.target.value)}
         />
-        <label className="inline-flex cursor-pointer items-center gap-2 rounded-lg border border-gray-200 bg-white px-2.5 py-2 text-xs font-medium text-[#0F2B5B] hover:bg-gray-50 dark:border-white/10 dark:bg-[#0F2B5B]/20 dark:text-white">
+        <label className="inline-flex cursor-pointer items-center gap-2 rounded-lg border border-gray-200 bg-white px-2.5 py-2 text-xs font-medium text-[#850b0b] hover:bg-gray-50 dark:border-white/10 dark:bg-[#850b0b]/20 dark:text-white">
           <Upload size={12} />
           {uploading ? "A enviar..." : "Upload"}
           <input type="file" accept="image/*" className="hidden" onChange={onFile} />
@@ -343,7 +343,7 @@ function FileUploadField({ value, onChange, placeholder }: { value: string; onCh
           placeholder={placeholder}
           onChange={(e) => onChange(normalizeAssetUrl(e.target.value) ?? e.target.value)}
         />
-        <label className="inline-flex cursor-pointer items-center gap-2 rounded-lg border border-gray-200 bg-white px-2.5 py-2 text-xs font-medium text-[#0F2B5B] hover:bg-gray-50 dark:border-white/10 dark:bg-[#0F2B5B]/20 dark:text-white">
+        <label className="inline-flex cursor-pointer items-center gap-2 rounded-lg border border-gray-200 bg-white px-2.5 py-2 text-xs font-medium text-[#850b0b] hover:bg-gray-50 dark:border-white/10 dark:bg-[#850b0b]/20 dark:text-white">
           <Upload size={12} />
           {uploading ? "A enviar..." : "Upload"}
           <input type="file" accept=".pdf,image/*" className="hidden" onChange={onFile} />

@@ -55,7 +55,7 @@ export default function AdminProjectsList() {
     <div className="space-y-5">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat']">Projetos</h1>
+          <h1 className="text-2xl font-bold text-[#850b0b] dark:text-white font-['Montserrat']">Projetos</h1>
           <p className="text-xs text-gray-500 dark:text-white/50 mt-0.5">
           </p>
         </div>
@@ -77,7 +77,7 @@ export default function AdminProjectsList() {
             {rows.map((p) => (
               <tr key={p.id} className="hover:bg-gray-50/60 dark:hover:bg-white/5">
                 <td className="py-2.5 pr-4 max-w-[280px]">
-                  <span className="block font-medium text-[#0F2B5B] dark:text-white truncate">{p.title_pt}</span>
+                  <span className="block font-medium text-[#850b0b] dark:text-white truncate">{p.title_pt}</span>
                   <span className="block text-xs text-gray-400 font-mono truncate">/{p.slug}</span>
                 </td>
                 <td className="py-2.5 pr-4 text-gray-500 dark:text-white/60 text-xs">

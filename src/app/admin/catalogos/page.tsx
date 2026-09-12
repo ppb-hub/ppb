@@ -52,7 +52,7 @@ export default function AdminCatalogPage() {
 
   const open = (row: CatalogRow | "new") => {
     const base: Record<string, unknown> = { slug: "", name_pt: "", name_en: "", ordem: 0, ativo: true };
-    if (meta.colorField) base.color = "#0F2B5B";
+    if (meta.colorField) base.color = "#850b0b";
     if (row !== "new") for (const k of Object.keys(base)) base[k] = row[k] ?? base[k];
     setForm(base);
     setEditing(row);
@@ -100,7 +100,7 @@ export default function AdminCatalogPage() {
     <div className="space-y-5">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat']">Catálogos</h1>
+          <h1 className="text-2xl font-bold text-[#850b0b] dark:text-white font-['Montserrat']">Catálogos</h1>
           <p className="text-xs text-gray-500 dark:text-white/50 mt-0.5">Setores, municípios e estados usados nos projectos e nos filtros do site.</p>
         </div>
         <Btn onClick={() => open("new")}>
@@ -116,8 +116,8 @@ export default function AdminCatalogPage() {
             className={cx(
               "px-4 py-2 rounded-xl text-sm font-medium transition-colors border",
               tab === x.id
-                ? "bg-[#0F2B5B] text-white border-[#0F2B5B]"
-                : "bg-white dark:bg-transparent text-gray-600 dark:text-white/60 border-gray-200 dark:border-white/20 hover:border-[#0F2B5B]"
+                ? "bg-[#850b0b] text-white border-[#850b0b]"
+                : "bg-white dark:bg-transparent text-gray-600 dark:text-white/60 border-gray-200 dark:border-white/20 hover:border-[#850b0b]"
             )}
           >
             {x.label}
@@ -136,7 +136,7 @@ export default function AdminCatalogPage() {
             {rows.map((row) => (
               <tr key={row.id} className="hover:bg-gray-50/60 dark:hover:bg-white/5">
                 <td className="py-2.5 pr-4 font-mono text-xs text-gray-500">{row.slug}</td>
-                <td className="py-2.5 pr-4 font-medium text-[#0F2B5B] dark:text-white">{row.name_pt}</td>
+                <td className="py-2.5 pr-4 font-medium text-[#850b0b] dark:text-white">{row.name_pt}</td>
                 <td className="py-2.5 pr-4 text-gray-500 dark:text-white/60">{row.name_en}</td>
                 {meta.colorField ? (
                   <td className="py-2.5 pr-4">
@@ -187,7 +187,7 @@ export default function AdminCatalogPage() {
               <div>
                 <Label>Cor (hex)</Label>
                 <div className="flex gap-2">
-                  <input type="color" className="h-10 w-14 rounded-lg border border-gray-200 dark:border-white/20 bg-transparent" value={/^#([0-9a-fA-F]{6})$/.test(String(form.color)) ? String(form.color) : "#0F2B5B"} onChange={(e) => setForm({ ...form, color: e.target.value })} aria-label="Cor" />
+                  <input type="color" className="h-10 w-14 rounded-lg border border-gray-200 dark:border-white/20 bg-transparent" value={/^#([0-9a-fA-F]{6})$/.test(String(form.color)) ? String(form.color) : "#850b0b"} onChange={(e) => setForm({ ...form, color: e.target.value })} aria-label="Cor" />
                   <input className={inputCls} value={String(form.color ?? "")} onChange={(e) => setForm({ ...form, color: e.target.value })} placeholder="#27AE60" />
                 </div>
               </div>

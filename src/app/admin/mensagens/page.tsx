@@ -87,7 +87,7 @@ export default function AdminMessagesPage() {
   return (
     <div className="space-y-5">
       <div>
-        <h1 className="text-2xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat']">Mensagens de Contacto</h1>
+        <h1 className="text-2xl font-bold text-[#850b0b] dark:text-white font-['Montserrat']">Mensagens de Contacto</h1>
       </div>
 
       <div className="flex gap-2 flex-wrap">
@@ -98,7 +98,7 @@ export default function AdminMessagesPage() {
             className={cx(
               "px-4 py-2 rounded-xl text-sm font-medium transition-colors border inline-flex items-center gap-2",
               tab.id === x.id
-                ? "bg-[#0F2B5B] text-white border-[#0F2B5B]"
+                ? "bg-[#850b0b] text-white border-[#850b0b]"
                 : "bg-white dark:bg-transparent text-gray-600 dark:text-white/60 border-gray-200 dark:border-white/20"
             )}
           >
@@ -120,12 +120,12 @@ export default function AdminMessagesPage() {
               <tr key={m.id} className="hover:bg-gray-50/60 dark:hover:bg-white/5 cursor-pointer" onClick={() => void open(m)}>
                 <td className="py-2.5 pr-2 text-[#E8821A]">{!m.is_read ? <Mail size={15} aria-label="não lida" /> : <MailOpen size={15} className="text-gray-300 dark:text-white/30" aria-label="lida" />}</td>
                 <td className="py-2.5 pr-4">
-                  <span className="block font-medium text-[#0F2B5B] dark:text-white">{m.name}</span>
+                  <span className="block font-medium text-[#850b0b] dark:text-white">{m.name}</span>
                   <span className="block text-xs text-gray-400">{m.email}</span>
                 </td>
                 <td className="py-2.5 pr-4 text-gray-500 dark:text-white/60 max-w-[220px] truncate">{m.project_title || "—"}</td>
                 <td className="py-2.5 pr-4 text-xs">
-                  <span className="bg-[#0F2B5B]/8 dark:bg-white/10 text-[#0F2B5B] dark:text-white/70 px-2 py-1 rounded-full">{m.interest_type || "—"}</span>
+                  <span className="bg-[#850b0b]/8 dark:bg-white/10 text-[#850b0b] dark:text-white/70 px-2 py-1 rounded-full">{m.interest_type || "—"}</span>
                 </td>
                 <td className="py-2.5 pr-4 text-xs text-gray-400 whitespace-nowrap">{new Date(m.created_at).toLocaleString("pt-PT")}</td>
                 <td className="py-2.5 text-right">
@@ -151,7 +151,7 @@ export default function AdminMessagesPage() {
           <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={() => setDetail(null)} />
           <div className="relative bg-white dark:bg-[#0a1628] w-full max-w-2xl rounded-t-2xl sm:rounded-2xl shadow-2xl max-h-[85vh] overflow-y-auto">
             <header className="sticky top-0 bg-white dark:bg-[#0a1628] flex items-center justify-between px-5 py-4 border-b border-gray-100 dark:border-white/10">
-              <h3 className="font-bold text-[#0F2B5B] dark:text-white font-['Montserrat'] text-sm">Mensagem de {detail?.name ?? "…"}</h3>
+              <h3 className="font-bold text-[#850b0b] dark:text-white font-['Montserrat'] text-sm">Mensagem de {detail?.name ?? "…"}</h3>
               <button onClick={() => setDetail(null)} aria-label="Fechar" className="p-1.5 rounded-lg text-gray-400 hover:bg-gray-100 dark:hover:bg-white/10">
                 <X size={18} />
               </button>
@@ -211,7 +211,7 @@ function Info({ label, value, href }: { label: string; value: string; href?: str
       {href ? (
         <a href={href} className="text-[#E8821A] hover:underline break-all">{value}</a>
       ) : (
-        <p className="text-[#0F2B5B] dark:text-white break-all">{value}</p>
+        <p className="text-[#850b0b] dark:text-white break-all">{value}</p>
       )}
     </div>
   );

@@ -204,7 +204,7 @@ export default function OpportunitiesExplorer({
         </div>
         <button
           onClick={() => setFilterOpen(true)}
-          className="flex items-center justify-center gap-2 px-5 py-3 border border-gray-200 dark:border-white/20 rounded-xl text-sm font-medium text-[#0F2B5B] dark:text-white hover:border-[#0F2B5B] dark:hover:border-white transition-colors bg-white dark:bg-white/5"
+          className="flex items-center justify-center gap-2 px-5 py-3 border border-gray-200 dark:border-white/20 rounded-xl text-sm font-medium text-[#850b0b] dark:text-white hover:border-[#850b0b] dark:hover:border-white transition-colors bg-white dark:bg-white/5"
         >
           <SlidersHorizontal size={16} aria-hidden="true" />
           {ui.projects.filter}
@@ -218,7 +218,7 @@ export default function OpportunitiesExplorer({
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value)}
           aria-label={ui.projects.sortBy}
-          className="px-4 py-3 border border-gray-200 dark:border-white/20 bg-white dark:bg-[#0F2B5B]/30 text-[#1a2332] dark:text-white rounded-xl text-sm focus:outline-none focus:border-[#E8821A]"
+          className="px-4 py-3 border border-gray-200 dark:border-white/20 bg-white dark:bg-[#850b0b]/30 text-[#1a2332] dark:text-white rounded-xl text-sm focus:outline-none focus:border-[#E8821A]"
         >
           <option value="recent">{ui.investor.sortRecent || "Mais recentes"}</option>
           <option value="name">{ui.investor.sortName || "Por nome"}</option>
@@ -230,7 +230,7 @@ export default function OpportunitiesExplorer({
             className={cx(
               "px-3 py-3 transition-colors",
               viewMode === "grid"
-                ? "bg-[#0F2B5B] text-white"
+                ? "bg-[#850b0b] text-white"
                 : "bg-white dark:bg-white/5 text-gray-500 dark:text-white/60 hover:bg-gray-50"
             )}
             aria-label={ui.projects.gridAria}
@@ -243,7 +243,7 @@ export default function OpportunitiesExplorer({
             className={cx(
               "px-3 py-3 transition-colors",
               viewMode === "list"
-                ? "bg-[#0F2B5B] text-white"
+                ? "bg-[#850b0b] text-white"
                 : "bg-white dark:bg-white/5 text-gray-500 dark:text-white/60 hover:bg-gray-50"
             )}
             aria-label={ui.projects.listAria}
@@ -261,7 +261,7 @@ export default function OpportunitiesExplorer({
             facetChip(
               activeSector,
               () => setParam("sector", ""),
-              "bg-[#0F2B5B]/10 dark:bg-white/10 text-[#0F2B5B] dark:text-white"
+              "bg-[#850b0b]/10 dark:bg-white/10 text-[#850b0b] dark:text-white"
             )}
           {activeType &&
             facetChip(
@@ -293,16 +293,16 @@ export default function OpportunitiesExplorer({
             return (
               <div
                 key={op.id}
-                className="group bg-white dark:bg-[#0F2B5B]/30 rounded-2xl overflow-hidden border border-gray-100 dark:border-white/10 shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.14)] transition-all duration-300 hover:-translate-y-1"
+                className="group bg-white dark:bg-[#850b0b]/30 rounded-2xl overflow-hidden border border-gray-100 dark:border-white/10 shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.14)] transition-all duration-300 hover:-translate-y-1"
                 style={{ borderColor: op.color ? `${op.color}55` : undefined }}
               >
                 {/* Header com ícone */}
-                <div className="relative h-40 bg-gradient-to-br from-[#0F2B5B] to-[#1a3d6e] flex items-center justify-center">
+                <div className="relative h-40 bg-gradient-to-br from-[#850b0b] to-[#1a3d6e] flex items-center justify-center">
                   <div className="w-20 h-20 bg-white/10 rounded-2xl flex items-center justify-center backdrop-blur-sm">
                     <ApiIcon name={op.icon} size={36} className="text-[#D4A843]" />
                   </div>
                   <div className="absolute top-3 left-3">
-                    <span className="bg-[#D4A843] text-[#0F2B5B] text-xs font-bold px-2.5 py-1 rounded-full">
+                    <span className="bg-[#D4A843] text-[#850b0b] text-xs font-bold px-2.5 py-1 rounded-full">
                       {ui.investor.opportunityBadge || "Oportunidade"}
                     </span>
                   </div>
@@ -321,11 +321,11 @@ export default function OpportunitiesExplorer({
                 {/* Conteúdo */}
                 <div className="p-5">
                   {op.type && (
-                    <span className="text-xs bg-[#0F2B5B]/8 dark:bg-white/10 text-[#0F2B5B] dark:text-white/70 px-2.5 py-1 rounded-full mb-2 inline-block">
+                    <span className="text-xs bg-[#850b0b]/8 dark:bg-white/10 text-[#850b0b] dark:text-white/70 px-2.5 py-1 rounded-full mb-2 inline-block">
                       {op.type}
                     </span>
                   )}
-                  <h3 className="font-bold text-[#0F2B5B] dark:text-white font-['Montserrat'] text-base leading-snug mb-2 line-clamp-2">
+                  <h3 className="font-bold text-[#850b0b] dark:text-white font-['Montserrat'] text-base leading-snug mb-2 line-clamp-2">
                     {bi(op, "area", locale)}
                   </h3>
                   <p className="text-sm text-gray-600 dark:text-white/70 leading-relaxed mb-4 line-clamp-3">
@@ -349,7 +349,7 @@ export default function OpportunitiesExplorer({
 
                   <Link
                     href={`${localizedHref(locale, "contact")}?interesse=investidor&oportunidade=${op.id}`}
-                    className="flex items-center justify-center gap-2 w-full bg-[#0F2B5B] hover:bg-[#E8821A] text-white text-sm font-medium py-2.5 rounded-xl transition-colors duration-200"
+                    className="flex items-center justify-center gap-2 w-full bg-[#850b0b] hover:bg-[#E8821A] text-white text-sm font-medium py-2.5 rounded-xl transition-colors duration-200"
                   >
                     {ui.investor.requestStudy} <ArrowRight size={14} aria-hidden="true" />
                   </Link>
@@ -363,21 +363,21 @@ export default function OpportunitiesExplorer({
           {paginated.map((op) => (
             <div
               key={op.id}
-              className="bg-white dark:bg-[#0F2B5B]/30 border border-gray-100 dark:border-white/10 rounded-xl p-4 flex items-center gap-4 hover:shadow-md transition-shadow"
+              className="bg-white dark:bg-[#850b0b]/30 border border-gray-100 dark:border-white/10 rounded-xl p-4 flex items-center gap-4 hover:shadow-md transition-shadow"
             >
-              <div className="relative w-14 h-14 shrink-0 rounded-xl bg-gradient-to-br from-[#0F2B5B] to-[#1a3d6e] flex items-center justify-center">
+              <div className="relative w-14 h-14 shrink-0 rounded-xl bg-gradient-to-br from-[#850b0b] to-[#1a3d6e] flex items-center justify-center">
                 <ApiIcon name={op.icon} size={24} className="text-[#D4A843]" />
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="bg-[#D4A843] text-[#0F2B5B] text-xs font-bold px-2 py-0.5 rounded-full">
+                  <span className="bg-[#D4A843] text-[#850b0b] text-xs font-bold px-2 py-0.5 rounded-full">
                     {ui.investor.opportunityBadge || "Oportunidade"}
                   </span>
                   {op.type && (
                     <span className="text-xs text-gray-400 dark:text-white/50">{op.type}</span>
                   )}
                 </div>
-                <h3 className="font-semibold text-[#0F2B5B] dark:text-white text-sm truncate">
+                <h3 className="font-semibold text-[#850b0b] dark:text-white text-sm truncate">
                   {bi(op, "area", locale)}
                 </h3>
                 <p className="text-xs text-gray-500 dark:text-white/60 line-clamp-1 mt-0.5">
@@ -386,7 +386,7 @@ export default function OpportunitiesExplorer({
               </div>
               <Link
                 href={`${localizedHref(locale, "contact")}?interesse=investidor&oportunidade=${op.id}`}
-                className="px-4 py-2 bg-[#0F2B5B] hover:bg-[#E8821A] text-white text-xs font-medium rounded-lg transition-colors whitespace-nowrap"
+                className="px-4 py-2 bg-[#850b0b] hover:bg-[#E8821A] text-white text-xs font-medium rounded-lg transition-colors whitespace-nowrap"
               >
                 {ui.investor.requestStudy}
               </Link>
@@ -410,7 +410,7 @@ export default function OpportunitiesExplorer({
               onClick={() => setPage((pg) => Math.max(1, pg - 1))}
               disabled={safePage === 1}
               aria-label={ui.home.prevSlide}
-              className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-200 dark:border-white/20 disabled:opacity-40 hover:border-[#0F2B5B] dark:hover:border-white transition-colors"
+              className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-200 dark:border-white/20 disabled:opacity-40 hover:border-[#850b0b] dark:hover:border-white transition-colors"
             >
               <ChevronLeft size={16} />
             </button>
@@ -423,8 +423,8 @@ export default function OpportunitiesExplorer({
                   className={cx(
                     "w-9 h-9 rounded-lg text-sm font-medium transition-colors",
                     n === safePage
-                      ? "bg-[#0F2B5B] text-white"
-                      : "border border-gray-200 dark:border-white/20 text-gray-600 dark:text-white/60 hover:border-[#0F2B5B]"
+                      ? "bg-[#850b0b] text-white"
+                      : "border border-gray-200 dark:border-white/20 text-gray-600 dark:text-white/60 hover:border-[#850b0b]"
                   )}
                 >
                   {n}
@@ -434,7 +434,7 @@ export default function OpportunitiesExplorer({
               onClick={() => setPage((pg) => Math.min(totalPages, pg + 1))}
               disabled={safePage === totalPages}
               aria-label={ui.home.nextSlide}
-              className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-200 dark:border-white/20 disabled:opacity-40 hover:border-[#0F2B5B] dark:hover:border-white transition-colors"
+              className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-200 dark:border-white/20 disabled:opacity-40 hover:border-[#850b0b] dark:hover:border-white transition-colors"
             >
               <ChevronRight size={16} />
             </button>
@@ -461,9 +461,9 @@ export default function OpportunitiesExplorer({
       {filterOpen && (
         <div className="fixed inset-0 z-50 flex" role="dialog" aria-modal="true" aria-label={ui.projects.filters}>
           <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setFilterOpen(false)} />
-          <div className="relative ml-auto w-80 max-w-full h-full bg-white dark:bg-[#0F2B5B] shadow-2xl overflow-y-auto">
+          <div className="relative ml-auto w-80 max-w-full h-full bg-white dark:bg-[#850b0b] shadow-2xl overflow-y-auto">
             <div className="flex items-center justify-between p-5 border-b border-gray-100 dark:border-white/10">
-              <h2 className="font-bold text-[#0F2B5B] dark:text-white font-['Montserrat']">
+              <h2 className="font-bold text-[#850b0b] dark:text-white font-['Montserrat']">
                 {ui.projects.filters}
               </h2>
               <button
@@ -552,7 +552,7 @@ export default function OpportunitiesExplorer({
       {toastMsg && (
         <div
           role="status"
-          className="fixed bottom-20 left-1/2 -translate-x-1/2 bg-[#0F2B5B] text-white text-sm px-5 py-3 rounded-xl shadow-lg flex items-center gap-2 z-50 animate-fade-in"
+          className="fixed bottom-20 left-1/2 -translate-x-1/2 bg-[#850b0b] text-white text-sm px-5 py-3 rounded-xl shadow-lg flex items-center gap-2 z-50 animate-fade-in"
         >
           <Heart size={14} className="fill-red-400 text-red-400" />
           {toastMsg}
@@ -575,7 +575,7 @@ export default function OpportunitiesExplorer({
 function FacetGroup({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <h3 className="font-semibold text-sm text-[#0F2B5B] dark:text-white mb-3">{title}</h3>
+      <h3 className="font-semibold text-sm text-[#850b0b] dark:text-white mb-3">{title}</h3>
       <div className="space-y-2">{children}</div>
     </div>
   );

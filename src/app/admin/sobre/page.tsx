@@ -72,7 +72,7 @@ export default function AdminAboutPage() {
     <div className="space-y-5">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat']">Página “Sobre a Gestão”</h1>
+          <h1 className="text-2xl font-bold text-[#850b0b] dark:text-white font-['Montserrat']">Página “Sobre a Gestão”</h1>
           <p className="text-xs text-gray-500 dark:text-white/50 mt-0.5">Conteúdo institucional.</p>
         </div>
         <Btn onClick={save} loading={saving} disabled={!form}>
@@ -168,7 +168,7 @@ function ImageField({ value, onChange }: { value: string; onChange: (next: strin
           value={value}
           onChange={(e) => onChange(normalizeAssetUrl(e.target.value) ?? e.target.value)}
         />
-        <label className="inline-flex cursor-pointer items-center gap-2 rounded-lg border border-gray-200 bg-white px-2.5 py-2 text-xs font-medium text-[#0F2B5B] hover:bg-gray-50 dark:border-white/10 dark:bg-[#0F2B5B]/20 dark:text-white">
+        <label className="inline-flex cursor-pointer items-center gap-2 rounded-lg border border-gray-200 bg-white px-2.5 py-2 text-xs font-medium text-[#850b0b] hover:bg-gray-50 dark:border-white/10 dark:bg-[#850b0b]/20 dark:text-white">
           <svg viewBox="0 0 24 24" aria-hidden="true" className="h-3.5 w-3.5 fill-none stroke-current stroke-[2]">
             <path d="M12 16V4m0 0-4 4m4-4 4 4M4 18.5V18a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>

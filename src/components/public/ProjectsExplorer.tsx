@@ -187,7 +187,7 @@ export default function ProjectsExplorer({
         </div>
         <button
           onClick={() => setFilterOpen(true)}
-          className="flex items-center justify-center gap-2 px-5 py-3 border border-gray-200 dark:border-white/20 rounded-xl text-sm font-medium text-[#0F2B5B] dark:text-white hover:border-[#0F2B5B] dark:hover:border-white transition-colors bg-white dark:bg-white/5"
+          className="flex items-center justify-center gap-2 px-5 py-3 border border-gray-200 dark:border-white/20 rounded-xl text-sm font-medium text-[#850b0b] dark:text-white hover:border-[#850b0b] dark:hover:border-white transition-colors bg-white dark:bg-white/5"
         >
           <SlidersHorizontal size={16} aria-hidden="true" />
           {ui.projects.filter}
@@ -199,7 +199,7 @@ export default function ProjectsExplorer({
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value)}
           aria-label={ui.projects.sortBy}
-          className="px-4 py-3 border border-gray-200 dark:border-white/20 bg-white dark:bg-[#0F2B5B]/30 text-[#1a2332] dark:text-white rounded-xl text-sm focus:outline-none focus:border-[#E8821A]"
+          className="px-4 py-3 border border-gray-200 dark:border-white/20 bg-white dark:bg-[#850b0b]/30 text-[#1a2332] dark:text-white rounded-xl text-sm focus:outline-none focus:border-[#E8821A]"
         >
           <option value="recent">{ui.projects.sortRecent}</option>
           <option value="value">{ui.projects.sortValue}</option>
@@ -209,7 +209,7 @@ export default function ProjectsExplorer({
         <div className="flex border border-gray-200 dark:border-white/20 rounded-xl overflow-hidden">
           <button
             onClick={() => setViewMode("grid")}
-            className={cx("px-3 py-3 transition-colors", viewMode === "grid" ? "bg-[#0F2B5B] text-white" : "bg-white dark:bg-white/5 text-gray-500 dark:text-white/60 hover:bg-gray-50")}
+            className={cx("px-3 py-3 transition-colors", viewMode === "grid" ? "bg-[#850b0b] text-white" : "bg-white dark:bg-white/5 text-gray-500 dark:text-white/60 hover:bg-gray-50")}
             aria-label={ui.projects.gridAria}
             aria-pressed={viewMode === "grid"}
           >
@@ -217,7 +217,7 @@ export default function ProjectsExplorer({
           </button>
           <button
             onClick={() => setViewMode("list")}
-            className={cx("px-3 py-3 transition-colors", viewMode === "list" ? "bg-[#0F2B5B] text-white" : "bg-white dark:bg-white/5 text-gray-500 dark:text-white/60 hover:bg-gray-50")}
+            className={cx("px-3 py-3 transition-colors", viewMode === "list" ? "bg-[#850b0b] text-white" : "bg-white dark:bg-white/5 text-gray-500 dark:text-white/60 hover:bg-gray-50")}
             aria-label={ui.projects.listAria}
             aria-pressed={viewMode === "list"}
           >
@@ -230,7 +230,7 @@ export default function ProjectsExplorer({
       {facetCount > 0 && (
         <div className="flex flex-wrap gap-2 mb-5">
           {activeMunicipality &&
-            facetChip(catalogName(municipalities.find((m) => m.slug === activeMunicipality), locale) || activeMunicipality, () => setParam("municipality", ""), "bg-[#0F2B5B]/10 dark:bg-white/10 text-[#0F2B5B] dark:text-white")}
+            facetChip(catalogName(municipalities.find((m) => m.slug === activeMunicipality), locale) || activeMunicipality, () => setParam("municipality", ""), "bg-[#850b0b]/10 dark:bg-white/10 text-[#850b0b] dark:text-white")}
           {activeSector &&
             facetChip(catalogName(sectors.find((s) => s.slug === activeSector), locale) || activeSector, () => setParam("sector", ""), "bg-[#E8821A]/10 text-[#E8821A]")}
           {activeStatus &&
@@ -254,7 +254,7 @@ export default function ProjectsExplorer({
           {paginated.map((p) => (
             <div
               key={p.id}
-              className="group bg-white dark:bg-[#0F2B5B]/30 rounded-2xl overflow-hidden border border-gray-100 dark:border-white/10 shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.14)] transition-all duration-300 hover:-translate-y-1"
+              className="group bg-white dark:bg-[#850b0b]/30 rounded-2xl overflow-hidden border border-gray-100 dark:border-white/10 shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.14)] transition-all duration-300 hover:-translate-y-1"
             >
               <div className="relative h-48 bg-gray-100">
                 <ApiImage src={p.cover_image} alt={bi(p, "title", locale)} sizes="(max-width:640px) 100vw,(max-width:1024px) 50vw,33vw" fallbackLabel={ui.detail.noImage} />
@@ -270,10 +270,10 @@ export default function ProjectsExplorer({
                 </button>
               </div>
               <div className="p-5">
-                <span className="text-xs bg-[#0F2B5B]/8 dark:bg-white/10 text-[#0F2B5B] dark:text-white/70 px-2.5 py-1 rounded-full mb-2 inline-block">
+                <span className="text-xs bg-[#850b0b]/8 dark:bg-white/10 text-[#850b0b] dark:text-white/70 px-2.5 py-1 rounded-full mb-2 inline-block">
                   {catalogName(p.sector, locale)}
                 </span>
-                <h3 className="font-bold text-[#0F2B5B] dark:text-white font-['Montserrat'] text-sm leading-snug mb-2 line-clamp-2">
+                <h3 className="font-bold text-[#850b0b] dark:text-white font-['Montserrat'] text-sm leading-snug mb-2 line-clamp-2">
                   {bi(p, "title", locale)}
                 </h3>
                 <div className="flex items-center gap-1.5 text-gray-500 dark:text-white/50 text-xs mb-3">
@@ -282,14 +282,14 @@ export default function ProjectsExplorer({
                 <div className="mb-3">
                   <div className="flex justify-between text-xs mb-1">
                     <span className="text-gray-400 dark:text-white/50">{ui.projects.execLabel}</span>
-                    <span className="font-semibold text-[#0F2B5B] dark:text-white">{p.progress}%</span>
+                    <span className="font-semibold text-[#850b0b] dark:text-white">{p.progress}%</span>
                   </div>
                   <ProgressBar progress={p.progress} />
                 </div>
                 {p.value_kz ? <div className="text-xs text-[#E8821A] font-semibold mb-4">{formatMoneyKz(p.value_kz)}</div> : null}
                 <Link
                   href={localizedHref(locale, "projects", p.slug)}
-                  className="flex items-center justify-center gap-2 w-full bg-[#0F2B5B] hover:bg-[#E8821A] text-white text-sm font-medium py-2.5 rounded-xl transition-colors duration-200"
+                  className="flex items-center justify-center gap-2 w-full bg-[#850b0b] hover:bg-[#E8821A] text-white text-sm font-medium py-2.5 rounded-xl transition-colors duration-200"
                 >
                   {ui.common.seeDetails} <ArrowRight size={14} aria-hidden="true" />
                 </Link>
@@ -300,7 +300,7 @@ export default function ProjectsExplorer({
       ) : (
         <div className="space-y-3">
           {paginated.map((p) => (
-            <div key={p.id} className="bg-white dark:bg-[#0F2B5B]/30 border border-gray-100 dark:border-white/10 rounded-xl p-4 flex items-center gap-4 hover:shadow-md transition-shadow">
+            <div key={p.id} className="bg-white dark:bg-[#850b0b]/30 border border-gray-100 dark:border-white/10 rounded-xl p-4 flex items-center gap-4 hover:shadow-md transition-shadow">
               <div className="relative w-20 h-14 shrink-0 rounded-lg overflow-hidden bg-gray-100">
                 <ApiImage src={p.cover_image} alt={bi(p, "title", locale)} sizes="80px" fallbackLabel="" />
               </div>
@@ -309,7 +309,7 @@ export default function ProjectsExplorer({
                   <StatusBadge status={p.status} locale={locale} />
                   <span className="text-xs text-gray-400 dark:text-white/50">{catalogName(p.sector, locale)}</span>
                 </div>
-                <h3 className="font-semibold text-[#0F2B5B] dark:text-white text-sm truncate">{bi(p, "title", locale)}</h3>
+                <h3 className="font-semibold text-[#850b0b] dark:text-white text-sm truncate">{bi(p, "title", locale)}</h3>
                 <div className="flex items-center gap-3 mt-1 text-xs text-gray-400 dark:text-white/50">
                   <span className="flex items-center gap-1">
                     <MapPin size={10} aria-hidden="true" />
@@ -320,12 +320,12 @@ export default function ProjectsExplorer({
               </div>
               <div className="hidden sm:flex items-center gap-4 shrink-0">
                 <div className="w-24">
-                  <div className="text-xs text-right mb-1 font-medium text-[#0F2B5B] dark:text-white">{p.progress}%</div>
+                  <div className="text-xs text-right mb-1 font-medium text-[#850b0b] dark:text-white">{p.progress}%</div>
                   <ProgressBar progress={p.progress} />
                 </div>
                 <Link
                   href={localizedHref(locale, "projects", p.slug)}
-                  className="px-4 py-2 bg-[#0F2B5B] hover:bg-[#E8821A] text-white text-xs font-medium rounded-lg transition-colors"
+                  className="px-4 py-2 bg-[#850b0b] hover:bg-[#E8821A] text-white text-xs font-medium rounded-lg transition-colors"
                 >
                   {locale === "pt" ? "Ver" : "View"}
                 </Link>
@@ -346,7 +346,7 @@ export default function ProjectsExplorer({
               onClick={() => setPage((pg) => Math.max(1, pg - 1))}
               disabled={safePage === 1}
               aria-label={ui.home.prevSlide}
-              className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-200 dark:border-white/20 disabled:opacity-40 hover:border-[#0F2B5B] dark:hover:border-white transition-colors"
+              className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-200 dark:border-white/20 disabled:opacity-40 hover:border-[#850b0b] dark:hover:border-white transition-colors"
             >
               <ChevronLeft size={16} />
             </button>
@@ -356,7 +356,7 @@ export default function ProjectsExplorer({
                 onClick={() => setPage(n)}
                 className={cx(
                   "w-9 h-9 rounded-lg text-sm font-medium transition-colors",
-                  n === safePage ? "bg-[#0F2B5B] text-white" : "border border-gray-200 dark:border-white/20 text-gray-600 dark:text-white/60 hover:border-[#0F2B5B]"
+                  n === safePage ? "bg-[#850b0b] text-white" : "border border-gray-200 dark:border-white/20 text-gray-600 dark:text-white/60 hover:border-[#850b0b]"
                 )}
               >
                 {n}
@@ -366,7 +366,7 @@ export default function ProjectsExplorer({
               onClick={() => setPage((pg) => Math.min(totalPages, pg + 1))}
               disabled={safePage === totalPages}
               aria-label={ui.home.nextSlide}
-              className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-200 dark:border-white/20 disabled:opacity-40 hover:border-[#0F2B5B] dark:hover:border-white transition-colors"
+              className="w-9 h-9 flex items-center justify-center rounded-lg border border-gray-200 dark:border-white/20 disabled:opacity-40 hover:border-[#850b0b] dark:hover:border-white transition-colors"
             >
               <ChevronRight size={16} />
             </button>
@@ -393,9 +393,9 @@ export default function ProjectsExplorer({
       {filterOpen && (
         <div className="fixed inset-0 z-50 flex" role="dialog" aria-modal="true" aria-label={ui.projects.filters}>
           <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setFilterOpen(false)} />
-          <div className="relative ml-auto w-80 max-w-full h-full bg-white dark:bg-[#0F2B5B] shadow-2xl overflow-y-auto">
+          <div className="relative ml-auto w-80 max-w-full h-full bg-white dark:bg-[#850b0b] shadow-2xl overflow-y-auto">
             <div className="flex items-center justify-between p-5 border-b border-gray-100 dark:border-white/10">
-              <h2 className="font-bold text-[#0F2B5B] dark:text-white font-['Montserrat']">{ui.projects.filters}</h2>
+              <h2 className="font-bold text-[#850b0b] dark:text-white font-['Montserrat']">{ui.projects.filters}</h2>
               <button onClick={() => setFilterOpen(false)} aria-label={ui.menu.close} className="text-gray-400 hover:text-gray-600">
                 <X size={20} />
               </button>
@@ -432,7 +432,7 @@ export default function ProjectsExplorer({
 
       {/* Toast (favoritos locais) */}
       {toastMsg && (
-        <div role="status" className="fixed bottom-20 left-1/2 -translate-x-1/2 bg-[#0F2B5B] text-white text-sm px-5 py-3 rounded-xl shadow-lg flex items-center gap-2 z-50 animate-fade-in">
+        <div role="status" className="fixed bottom-20 left-1/2 -translate-x-1/2 bg-[#850b0b] text-white text-sm px-5 py-3 rounded-xl shadow-lg flex items-center gap-2 z-50 animate-fade-in">
           <Heart size={14} className="fill-red-400 text-red-400" />
           {toastMsg}
         </div>
@@ -453,7 +453,7 @@ export default function ProjectsExplorer({
 function FacetGroup({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <h3 className="font-semibold text-sm text-[#0F2B5B] dark:text-white mb-3">{title}</h3>
+      <h3 className="font-semibold text-sm text-[#850b0b] dark:text-white mb-3">{title}</h3>
       <div className="space-y-2">{children}</div>
     </div>
   );

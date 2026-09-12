@@ -13,8 +13,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-navy: #0F2B5B;
-  --color-navy-dark: #091d3f;
+  --color-navy: #850b0b;
+  --color-navy-dark: #850b0b;
   --color-navy-light: #1a3d7a;
   --color-gold: #D4A843;
   --color-gold-light: #e0bc6a;

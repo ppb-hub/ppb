@@ -3,7 +3,7 @@ import { ProjectGridSkeleton, Spinner } from "@/components/public/Skeletons";
 export default function ProjectsLoading() {
   return (
     <div className="bg-white dark:bg-[#0a1628]">
-      <div className="bg-[#0F2B5B] py-10 px-4 sm:px-6">
+      <div className="bg-[#850b0b] py-10 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto space-y-3">
           <div className="skeleton h-3 w-40 rounded bg-white/10" />
           <div className="skeleton h-8 w-64 rounded bg-white/10" />

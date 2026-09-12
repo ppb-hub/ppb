@@ -8,8 +8,8 @@ export default async function LangNotFound({ params }: { params?: Promise<{ lang
   const pt = locale === "pt";
   return (
     <div className="min-h-[60vh] flex flex-col items-center justify-center px-4 text-center py-24">
-      <div className="text-7xl font-bold text-[#0F2B5B] dark:text-[#D4A843] font-['Montserrat'] mb-4">404</div>
-      <h1 className="text-2xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat'] mb-3">
+      <div className="text-7xl font-bold text-[#850b0b] dark:text-[#D4A843] font-['Montserrat'] mb-4">404</div>
+      <h1 className="text-2xl font-bold text-[#850b0b] dark:text-white font-['Montserrat'] mb-3">
         {pt ? "Página não encontrada" : "Page not found"}
       </h1>
       <p className="text-gray-500 dark:text-white/60 max-w-md mb-8">
@@ -21,7 +21,7 @@ export default async function LangNotFound({ params }: { params?: Promise<{ lang
         <Link href={localizedHref(locale, "home")} className="px-6 py-3 bg-[#E8821A] hover:bg-[#c96d10] text-white font-semibold rounded-xl transition-colors">
           {pt ? "Voltar ao Início" : "Back to Home"}
         </Link>
-        <Link href={localizedHref(locale, "projects")} className="px-6 py-3 border border-gray-300 dark:border-white/20 text-[#0F2B5B] dark:text-white rounded-xl hover:bg-gray-50 dark:hover:bg-white/5">
+        <Link href={localizedHref(locale, "projects")} className="px-6 py-3 border border-gray-300 dark:border-white/20 text-[#850b0b] dark:text-white rounded-xl hover:bg-gray-50 dark:hover:bg-white/5">
           {pt ? "Ver Projectos" : "View Projects"}
         </Link>
       </div>

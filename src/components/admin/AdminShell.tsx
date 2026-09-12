@@ -140,10 +140,10 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
       <div className="min-h-screen bg-[#F8F9FA] dark:bg-[#0a1628] text-[#1a2332] dark:text-white">
         <div className="flex">
           {/* Sidebar */}
-          <aside className="hidden lg:flex w-64 shrink-0 min-h-screen flex-col bg-[#0F2B5B] text-white sticky top-0 h-screen">
+          <aside className="hidden lg:flex w-64 shrink-0 min-h-screen flex-col bg-[#850b0b] text-white sticky top-0 h-screen">
             <Link href="/admin" className="flex items-center gap-3 px-5 h-16 border-b border-white/10">
               <span className="w-9 h-9 rounded-lg bg-[#D4A843] flex items-center justify-center">
-                <span className="text-[#0F2B5B] font-bold text-xs font-['Montserrat']">GPB</span>
+                <span className="text-[#850b0b] font-bold text-xs font-['Montserrat']">GPB</span>
               </span>
               <span>
                 <span className="block text-sm font-bold font-['Montserrat'] leading-tight">Painel</span>
@@ -163,7 +163,7 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
                           href={item.href}
                           className={cx(
                             "flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm transition-colors",
-                            active ? "bg-[#D4A843] text-[#0F2B5B] font-semibold" : "text-white/75 hover:text-white hover:bg-white/10"
+                            active ? "bg-[#D4A843] text-[#850b0b] font-semibold" : "text-white/75 hover:text-white hover:bg-white/10"
                           )}
                         >
                           <item.icon size={15} aria-hidden="true" />
@@ -189,7 +189,7 @@ export default function AdminShell({ children }: { children: React.ReactNode }) 
               {/* mobile nav */}
               <MobileNav user={user} onLogout={doLogout} />
               <div className="ml-auto flex items-center gap-2">
-                <Link href="/pt" target="_blank" className="text-xs text-[#0F2B5B] dark:text-white/70 hover:text-[#E8821A] underline underline-offset-2">
+                <Link href="/pt" target="_blank" className="text-xs text-[#850b0b] dark:text-white/70 hover:text-[#E8821A] underline underline-offset-2">
                   Ver site
                 </Link>
                 <button
@@ -215,7 +215,7 @@ function MobileNav({ user, onLogout }: { user: UserOut; onLogout: () => Promise<
     <div className="lg:hidden flex items-center gap-3 min-w-0">
       <select
         aria-label="Navegação do painel"
-        className="max-w-[46vw] text-sm border border-gray-200 dark:border-white/20 bg-white dark:bg-[#0F2B5B] rounded-lg px-2 py-1.5"
+        className="max-w-[46vw] text-sm border border-gray-200 dark:border-white/20 bg-white dark:bg-[#850b0b] rounded-lg px-2 py-1.5"
         onChange={(e) => {
           if (e.target.value) window.location.href = e.target.value;
         }}

@@ -132,10 +132,10 @@ export default function HeroSlidesSettingsEditor() {
                     </div>
                   </div>
                   <div className="flex items-center gap-1 pt-1">
-                    <button onClick={() => move(i, -1)} disabled={i === 0} aria-label="Mover para cima" className="p-2 rounded-lg text-gray-500 hover:text-[#0F2B5B] hover:bg-gray-100 dark:hover:bg-white/10 disabled:opacity-30 transition-colors">
+                    <button onClick={() => move(i, -1)} disabled={i === 0} aria-label="Mover para cima" className="p-2 rounded-lg text-gray-500 hover:text-[#850b0b] hover:bg-gray-100 dark:hover:bg-white/10 disabled:opacity-30 transition-colors">
                       <ArrowUp size={15} />
                     </button>
-                    <button onClick={() => move(i, 1)} disabled={i === rows.length - 1} aria-label="Mover para baixo" className="p-2 rounded-lg text-gray-500 hover:text-[#0F2B5B] hover:bg-gray-100 dark:hover:bg-white/10 disabled:opacity-30 transition-colors">
+                    <button onClick={() => move(i, 1)} disabled={i === rows.length - 1} aria-label="Mover para baixo" className="p-2 rounded-lg text-gray-500 hover:text-[#850b0b] hover:bg-gray-100 dark:hover:bg-white/10 disabled:opacity-30 transition-colors">
                       <ArrowDown size={15} />
                     </button>
                     <button onClick={() => setRows((r) => (r ?? []).filter((_, idx) => idx !== i))} aria-label="Remover slide" className="p-2 rounded-lg text-gray-500 hover:text-[#E74C3C] hover:bg-[#E74C3C]/10 transition-colors ml-auto">

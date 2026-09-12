@@ -58,7 +58,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
   return (
     <div className="min-h-screen bg-white dark:bg-[#0a1628]">
       {/* Header */}
-      <div className="bg-[#0F2B5B] py-16 px-4 sm:px-6 text-center">
+      <div className="bg-[#850b0b] py-16 px-4 sm:px-6 text-center">
         <div className="max-w-3xl mx-auto">
           <Breadcrumbs locale={locale} ui={ui} items={[{ label: ui.nav.about }]} centered />
           <h1 className="text-3xl sm:text-4xl font-bold text-white font-['Montserrat'] mb-3">
@@ -80,7 +80,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
                   {governorPhoto ? (
                     <ApiImage src={about.governor_photo} alt={about.governor_name ?? ""} sizes="280px" />
                   ) : (
-                    <div className="w-full h-full flex items-end justify-center p-4 bg-gradient-to-b from-[#0F2B5B]/80 to-[#091d3f]">
+                    <div className="w-full h-full flex items-end justify-center p-4 bg-gradient-to-b from-[#850b0b]/80 to-[#850b0b]">
                       <span className="text-[#D4A843] font-bold text-5xl font-['Montserrat']">
                         {(about.governor_name ?? "GP").split(" ").map((w) => w[0]).slice(0, 2).join("")}
                       </span>
@@ -88,7 +88,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
                   )}
                 </div>
                 <div className="mt-4 text-center">
-                  <p className="font-bold text-[#0F2B5B] dark:text-white font-['Montserrat']">{about.governor_name}</p>
+                  <p className="font-bold text-[#850b0b] dark:text-white font-['Montserrat']">{about.governor_name}</p>
                   {about.governor_role ? <p className="text-sm text-gray-500 dark:text-white/60">{about.governor_role}</p> : null}
                   {about.governor_motto ? <div className="mt-2 text-[#D4A843] text-sm italic">“{about.governor_motto}”</div> : null}
                 </div>
@@ -96,7 +96,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
             )}
             <div>
               <span className="text-[#E8821A] text-sm font-semibold uppercase tracking-widest">{ui.about.messageLabel}</span>
-              <h2 id="msg-governador" className="text-2xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat'] mt-2 mb-5">
+              <h2 id="msg-governador" className="text-2xl font-bold text-[#850b0b] dark:text-white font-['Montserrat'] mt-2 mb-5">
                 {bi(about, "message_title", locale)}
               </h2>
               <div className="space-y-4 text-gray-600 dark:text-white/70 leading-relaxed">
@@ -113,7 +113,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
         {/* Missão, Visão, Valores */}
         {(mission || vision || values.length > 0) && (
           <section>
-            <h2 className="text-2xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat'] mb-8 text-center">{ui.about.missionVisionValues}</h2>
+            <h2 className="text-2xl font-bold text-[#850b0b] dark:text-white font-['Montserrat'] mb-8 text-center">{ui.about.missionVisionValues}</h2>
             <div className="grid sm:grid-cols-3 gap-6">
               {[
                 { icon: <Target size={28} className="text-[#E8821A]" aria-hidden="true" />, title: ui.about.mission, body: <p>{mission}</p>, show: !!mission },
@@ -136,9 +136,9 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
               ]
                 .filter((c) => c.show)
                 .map((item) => (
-                  <div key={item.title} className="bg-[#F8F9FA] dark:bg-[#0F2B5B]/30 rounded-2xl p-6 border border-gray-100 dark:border-white/10">
+                  <div key={item.title} className="bg-[#F8F9FA] dark:bg-[#850b0b]/30 rounded-2xl p-6 border border-gray-100 dark:border-white/10">
                     <div className="w-12 h-12 bg-white dark:bg-white/10 rounded-xl flex items-center justify-center mb-4 shadow-sm">{item.icon}</div>
-                    <h3 className="font-bold text-[#0F2B5B] dark:text-white font-['Montserrat'] mb-3">{item.title}</h3>
+                    <h3 className="font-bold text-[#850b0b] dark:text-white font-['Montserrat'] mb-3">{item.title}</h3>
                     <div className="text-gray-600 dark:text-white/70 text-sm leading-relaxed">{item.body}</div>
                   </div>
                 ))}
@@ -149,19 +149,19 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
         {/* Estrutura Organizacional — /api/about/org */}
         {/* {org.length > 0 && (
           <section>
-            <h2 className="text-2xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat'] mb-8 text-center">{ui.about.orgTitle}</h2>
+            <h2 className="text-2xl font-bold text-[#850b0b] dark:text-white font-['Montserrat'] mb-8 text-center">{ui.about.orgTitle}</h2>
             <div className="flex flex-col items-center gap-3">
               {org.map((o, i) => (
                 <div key={o.id} className="flex flex-col items-center">
                   <div
                     className={`rounded-xl px-6 py-3 text-center border ${
                       i === 0
-                        ? "bg-[#0F2B5B] text-white border-[#0F2B5B] min-w-[260px]"
-                        : "bg-white dark:bg-[#0F2B5B]/30 border-gray-200 dark:border-white/10 min-w-[240px]"
+                        ? "bg-[#850b0b] text-white border-[#850b0b] min-w-[260px]"
+                        : "bg-white dark:bg-[#850b0b]/30 border-gray-200 dark:border-white/10 min-w-[240px]"
                     }`}
                   >
                     <div className={`text-xs font-medium mb-0.5 ${i === 0 ? "text-[#D4A843]" : "text-[#E8821A]"}`}>{bi(o, "role", locale)}</div>
-                    <div className={`font-semibold text-sm font-['Montserrat'] ${i === 0 ? "text-white" : "text-[#0F2B5B] dark:text-white"}`}>{o.name}</div>
+                    <div className={`font-semibold text-sm font-['Montserrat'] ${i === 0 ? "text-white" : "text-[#850b0b] dark:text-white"}`}>{o.name}</div>
                   </div>
                   {i < org.length - 1 && <div className="w-0.5 h-4 bg-gray-300 dark:bg-white/20" aria-hidden="true" />}
                 </div>
@@ -173,18 +173,18 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
         {/* Realizações — /api/about/milestones */}
         {/* {milestones.length > 0 && (
           <section>
-            <h2 className="text-2xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat'] mb-8">{ui.about.timelineTitle}</h2>
+            <h2 className="text-2xl font-bold text-[#850b0b] dark:text-white font-['Montserrat'] mb-8">{ui.about.timelineTitle}</h2>
             <div className="space-y-0">
               {milestones.map((m, i) => (
                 <div key={m.id} className="flex gap-6">
                   <div className="flex flex-col items-center" aria-hidden="true">
-                    <div className="w-12 h-12 rounded-xl bg-[#0F2B5B] flex items-center justify-center text-[#D4A843] font-bold text-xs font-['Montserrat'] shrink-0">
+                    <div className="w-12 h-12 rounded-xl bg-[#850b0b] flex items-center justify-center text-[#D4A843] font-bold text-xs font-['Montserrat'] shrink-0">
                       {m.year}
                     </div>
                     {i < milestones.length - 1 && <div className="w-0.5 flex-1 bg-gray-200 dark:bg-white/10 my-1" />}
                   </div>
                   <div className="pb-8">
-                    <h3 className="font-bold text-[#0F2B5B] dark:text-white font-['Montserrat'] mb-1">{bi(m, "title", locale)}</h3>
+                    <h3 className="font-bold text-[#850b0b] dark:text-white font-['Montserrat'] mb-1">{bi(m, "title", locale)}</h3>
                     <p className="text-gray-600 dark:text-white/70 text-sm leading-relaxed">{bi(m, "description", locale)}</p>
                   </div>
                 </div>
@@ -196,7 +196,7 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
         {/* Vídeo institucional (se configurado no backend) */}
         {about?.video_url ? (
           <section>
-            <h2 className="text-2xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat'] mb-6 text-center">{ui.about.videoTitle}</h2>
+            <h2 className="text-2xl font-bold text-[#850b0b] dark:text-white font-['Montserrat'] mb-6 text-center">{ui.about.videoTitle}</h2>
             <VideoEmbed
               url={about.video_url}
               thumbnail={videoThumb}
@@ -208,8 +208,8 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: st
         ) : null}
 
         {/* CTA */}
-        <div className="text-center bg-[#F8F9FA] dark:bg-[#0F2B5B]/20 rounded-2xl p-8">
-          <h3 className="text-xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat'] mb-3">{ui.about.ctaTitle}</h3>
+        <div className="text-center bg-[#F8F9FA] dark:bg-[#850b0b]/20 rounded-2xl p-8">
+          <h3 className="text-xl font-bold text-[#850b0b] dark:text-white font-['Montserrat'] mb-3">{ui.about.ctaTitle}</h3>
           <p className="text-gray-600 dark:text-white/70 mb-5">{ui.about.ctaText}</p>
           <Link
             href={localizedHref(locale, "projects")}

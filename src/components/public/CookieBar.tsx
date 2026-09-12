@@ -32,7 +32,7 @@ export default function CookieBar({ locale, ui }: { locale: Locale; ui: UiString
     <div
       role="region"
       aria-label={ui.cookies.text}
-      className="no-print fixed bottom-0 left-0 right-0 z-50 bg-[#0F2B5B] border-t border-[#D4A843]/30 shadow-lg"
+      className="no-print fixed bottom-0 left-0 right-0 z-50 bg-[#850b0b] border-t border-[#D4A843]/30 shadow-lg"
     >
       <div className="max-w-7xl mx-auto px-4 py-3 sm:px-6 flex flex-col sm:flex-row items-center gap-3">
         <p className="text-white/80 text-sm text-center sm:text-left flex-1">
@@ -67,7 +67,7 @@ export default function CookieBar({ locale, ui }: { locale: Locale; ui: UiString
       </div>
 
       {settingsOpen && (
-        <div className="border-t border-white/10 bg-[#091d3f] px-4 sm:px-6 py-5">
+        <div className="border-t border-white/10 bg-[#850b0b] px-4 sm:px-6 py-5">
           <div className="max-w-3xl mx-auto">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-white font-semibold text-sm font-['Montserrat']">{ui.cookies.settings}</h2>

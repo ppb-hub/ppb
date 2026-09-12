@@ -94,7 +94,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
   return (
     <div className="min-h-screen bg-white dark:bg-[#0a1628]">
       {/* Header */}
-      <div className="bg-[#0F2B5B] py-10 px-4 sm:px-6">
+      <div className="bg-[#850b0b] py-10 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <Breadcrumbs
             locale={locale}
@@ -125,7 +125,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
             {desc ? (
               <section className="mb-8" aria-labelledby="descricao">
-                <h2 id="descricao" className="text-xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat'] mb-4">{ui.detail.description}</h2>
+                <h2 id="descricao" className="text-xl font-bold text-[#850b0b] dark:text-white font-['Montserrat'] mb-4">{ui.detail.description}</h2>
                 <div className="text-gray-600 dark:text-white/70 leading-relaxed space-y-3">
                   {desc.split(/\r?\n\r?\n/).map((para, i) => (
                     <p key={i} className="whitespace-pre-line">{para}</p>
@@ -136,7 +136,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
             {objectives.length > 0 && (
               <section className="mb-8" aria-labelledby="objetivos">
-                <h2 id="objetivos" className="text-xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat'] mb-4">{ui.detail.objectives}</h2>
+                <h2 id="objetivos" className="text-xl font-bold text-[#850b0b] dark:text-white font-['Montserrat'] mb-4">{ui.detail.objectives}</h2>
                 <ul className="space-y-2">
                   {objectives.map((obj) => (
                     <li key={obj.id} className="flex items-start gap-2.5 text-gray-600 dark:text-white/70">
@@ -149,7 +149,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             )}
 
             {/* <section className="mb-8" aria-labelledby="timeline">
-              <h2 id="timeline" className="text-xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat'] mb-4">{ui.detail.timeline}</h2>
+              <h2 id="timeline" className="text-xl font-bold text-[#850b0b] dark:text-white font-['Montserrat'] mb-4">{ui.detail.timeline}</h2>
               <div className="space-y-0">
                 {timeline.map((t, i) => (
                   <div key={i} className="flex gap-4">
@@ -165,7 +165,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                       )}
                     </div>
                     <div className="pb-4">
-                      <div className="font-medium text-[#0F2B5B] dark:text-white text-sm">{t.label}</div>
+                      <div className="font-medium text-[#850b0b] dark:text-white text-sm">{t.label}</div>
                       {t.date ? <div className="text-xs text-gray-400 dark:text-white/50">{t.date}</div> : null}
                     </div>
                   </div>
@@ -175,7 +175,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
             {docs.length > 0 && (
               <section className="mb-8" aria-labelledby="docs">
-                <h2 id="docs" className="text-xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat'] mb-4">{ui.detail.documents}</h2>
+                <h2 id="docs" className="text-xl font-bold text-[#850b0b] dark:text-white font-['Montserrat'] mb-4">{ui.detail.documents}</h2>
                 <div className="space-y-2">
                   {docs.map((d) => (
                     <a
@@ -186,7 +186,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                       className="flex items-center gap-3 p-3 border border-gray-100 dark:border-white/10 rounded-xl hover:border-[#E8821A] hover:bg-[#E8821A]/5 transition-all group"
                     >
                       <FileText size={18} className="text-[#E8821A] shrink-0" aria-hidden="true" />
-                      <span className="flex-1 text-sm font-medium text-[#0F2B5B] dark:text-white">{bi(d, "name", locale)}</span>
+                      <span className="flex-1 text-sm font-medium text-[#850b0b] dark:text-white">{bi(d, "name", locale)}</span>
                       {d.size_kb ? <span className="text-xs text-gray-400 dark:text-white/40">{formatSizeKb(d.size_kb)}</span> : null}
                       <span className="text-xs text-[#E8821A] opacity-0 group-hover:opacity-100 transition-opacity">PDF ↓</span>
                     </a>
@@ -197,8 +197,8 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
             {/* Localização — sem mapa embed (API não serve tiles); link externo quando há coordenadas */}
             <section className="mb-8" aria-labelledby="local">
-              <h2 id="local" className="text-xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat'] mb-4">{ui.detail.location}</h2>
-              <div className="rounded-2xl overflow-hidden h-56 bg-[#0F2B5B]/10 dark:bg-white/5 flex items-center justify-center border border-gray-100 dark:border-white/10">
+              <h2 id="local" className="text-xl font-bold text-[#850b0b] dark:text-white font-['Montserrat'] mb-4">{ui.detail.location}</h2>
+              <div className="rounded-2xl overflow-hidden h-56 bg-[#850b0b]/10 dark:bg-white/5 flex items-center justify-center border border-gray-100 dark:border-white/10">
                 <div className="text-center text-gray-400 dark:text-white/40">
                   <MapPin size={32} className="mx-auto mb-2 text-[#E8821A]" aria-hidden="true" />
                   {project.location ? <p className="text-sm">{project.location}</p> : null}
@@ -221,8 +221,8 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
           {/* Sidebar — Resumo Executivo com dados reais */}
           <aside>
-            <div className="sticky top-20 bg-white dark:bg-[#0F2B5B]/40 rounded-2xl border border-gray-100 dark:border-white/10 shadow-[0_4px_12px_rgba(0,0,0,0.08)] overflow-hidden no-print">
-              <div className="bg-[#0F2B5B] px-5 py-4">
+            <div className="sticky top-20 bg-white dark:bg-[#850b0b]/40 rounded-2xl border border-gray-100 dark:border-white/10 shadow-[0_4px_12px_rgba(0,0,0,0.08)] overflow-hidden no-print">
+              <div className="bg-[#850b0b] px-5 py-4">
                 <h3 className="font-bold text-white font-['Montserrat'] text-sm">{ui.detail.summary}</h3>
               </div>
               <div className="p-5 space-y-4">
@@ -238,7 +238,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                 <div className="pt-2">
                   <div className="flex justify-between text-sm mb-1">
                     <span className="text-gray-500 dark:text-white/60">{ui.detail.progressLabel}</span>
-                    <span className="font-bold text-[#0F2B5B] dark:text-white">{project.progress}%</span>
+                    <span className="font-bold text-[#850b0b] dark:text-white">{project.progress}%</span>
                   </div>
                   <ProgressBar progress={project.progress} />
                 </div>
@@ -247,7 +247,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                   <div className="pt-2 space-y-1.5">
                     <div className="text-xs text-gray-400 dark:text-white/50">{ui.detail.managerContact}</div>
                     {project.manager_name ? (
-                      <div className="text-sm text-[#0F2B5B] dark:text-white font-medium">{project.manager_name}</div>
+                      <div className="text-sm text-[#850b0b] dark:text-white font-medium">{project.manager_name}</div>
                     ) : null}
                     {project.manager_phone ? (
                       <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-white/80">
@@ -278,20 +278,20 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
         {/* Related */}
         {related.length > 0 && (
           <section className="mt-14">
-            <h2 className="text-xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat'] mb-6">{ui.detail.related}</h2>
+            <h2 className="text-xl font-bold text-[#850b0b] dark:text-white font-['Montserrat'] mb-6">{ui.detail.related}</h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {related.map((p) => (
                 <Link
                   key={p.id}
                   href={localizedHref(locale, "projects", p.slug)}
-                  className="group bg-white dark:bg-[#0F2B5B]/30 rounded-xl overflow-hidden border border-gray-100 dark:border-white/10 hover:shadow-md transition-all hover:-translate-y-1"
+                  className="group bg-white dark:bg-[#850b0b]/30 rounded-xl overflow-hidden border border-gray-100 dark:border-white/10 hover:shadow-md transition-all hover:-translate-y-1"
                 >
                   <div className="relative h-32 bg-gray-100 overflow-hidden">
                     <ApiImageFill src={p.cover_image} alt={bi(p, "title", locale)} />
                   </div>
                   <div className="p-3">
                     <div className="mb-1"><StatusBadge status={p.status} locale={locale} /></div>
-                    <h4 className="font-semibold text-xs text-[#0F2B5B] dark:text-white line-clamp-2 leading-snug">{bi(p, "title", locale)}</h4>
+                    <h4 className="font-semibold text-xs text-[#850b0b] dark:text-white line-clamp-2 leading-snug">{bi(p, "title", locale)}</h4>
                     <div className="flex items-center gap-1 mt-1 text-xs text-gray-400 dark:text-white/50">
                       <MapPin size={9} aria-hidden="true" /> {catalogName(p.municipality, locale)}
                     </div>
@@ -340,7 +340,7 @@ function SidebarRow({ icon, label, value }: { icon: React.ReactNode; label: stri
         <span className="text-[#D4A843]" aria-hidden="true">{icon}</span>
         {label}
       </div>
-      <div className="text-sm font-medium text-[#0F2B5B] dark:text-white">{value}</div>
+      <div className="text-sm font-medium text-[#850b0b] dark:text-white">{value}</div>
     </div>
   );
 }

@@ -28,8 +28,8 @@ export default function LangError({
 
   return (
     <div className="min-h-[60vh] flex flex-col items-center justify-center px-4 text-center py-24">
-      <div className="text-6xl font-bold text-[#0F2B5B] dark:text-[#D4A843] font-['Montserrat'] mb-4">500</div>
-      <h1 className="text-2xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat'] mb-3">
+      <div className="text-6xl font-bold text-[#850b0b] dark:text-[#D4A843] font-['Montserrat'] mb-4">500</div>
+      <h1 className="text-2xl font-bold text-[#850b0b] dark:text-white font-['Montserrat'] mb-3">
         {resolvedLocale === "pt" ? "Ocorreu um erro inesperado" : "Something went wrong"}
       </h1>
       <p className="text-gray-500 dark:text-white/60 max-w-md mb-8">
@@ -46,7 +46,7 @@ export default function LangError({
         </button>
         <Link
           href={localizedHref(resolvedLocale, "home")}
-          className="px-6 py-3 border border-gray-300 dark:border-white/20 text-[#0F2B5B] dark:text-white rounded-xl hover:bg-gray-50 dark:hover:bg-white/5 transition-colors"
+          className="px-6 py-3 border border-gray-300 dark:border-white/20 text-[#850b0b] dark:text-white rounded-xl hover:bg-gray-50 dark:hover:bg-white/5 transition-colors"
         >
           {resolvedLocale === "pt" ? "Voltar ao Início" : "Back to Home"}
         </Link>

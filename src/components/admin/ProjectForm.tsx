@@ -265,7 +265,7 @@ export default function ProjectForm({ projectId }: { projectId?: number }) {
             <ArrowLeft size={16} />
           </Link>
           <div className="min-w-0">
-            <h1 className="text-2xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat'] truncate">
+            <h1 className="text-2xl font-bold text-[#850b0b] dark:text-white font-['Montserrat'] truncate">
               {projectId ? "Editar projeto" : "Novo projeto"}
             </h1>
           </div>
@@ -282,8 +282,8 @@ export default function ProjectForm({ projectId }: { projectId?: number }) {
 
       {error ? <ErrorLine message={error} /> : null}
 
-      <section className="bg-white dark:bg-[#0F2B5B]/30 rounded-2xl border border-gray-100 dark:border-white/10 p-5 space-y-4">
-        <h2 className="font-bold text-sm text-[#0F2B5B] dark:text-white uppercase tracking-wide">Identificação</h2>
+      <section className="bg-white dark:bg-[#850b0b]/30 rounded-2xl border border-gray-100 dark:border-white/10 p-5 space-y-4">
+        <h2 className="font-bold text-sm text-[#850b0b] dark:text-white uppercase tracking-wide">Identificação</h2>
         <div className="grid sm:grid-cols-2 gap-4">
           <Field label="Título (PT)" required>
             <input className={inputCls} value={form.title_pt} onChange={(e) => set("title_pt", e.target.value)} />
@@ -337,8 +337,8 @@ export default function ProjectForm({ projectId }: { projectId?: number }) {
         </div>
       </section>
 
-      <section className="bg-white dark:bg-[#0F2B5B]/30 rounded-2xl border border-gray-100 dark:border-white/10 p-5 space-y-4">
-        <h2 className="font-bold text-sm text-[#0F2B5B] dark:text-white uppercase tracking-wide">Execução & valores</h2>
+      <section className="bg-white dark:bg-[#850b0b]/30 rounded-2xl border border-gray-100 dark:border-white/10 p-5 space-y-4">
+        <h2 className="font-bold text-sm text-[#850b0b] dark:text-white uppercase tracking-wide">Execução & valores</h2>
         <div className="grid sm:grid-cols-4 gap-4">
           <Field label={`Progresso: ${form.progress}%`}>
             <input type="range" min={0} max={100} value={form.progress} onChange={(e) => set("progress", Number(e.target.value))} className="w-full accent-[#E8821A]" />
@@ -383,8 +383,8 @@ export default function ProjectForm({ projectId }: { projectId?: number }) {
         </div>
       </section>
 
-      <section className="bg-white dark:bg-[#0F2B5B]/30 rounded-2xl border border-gray-100 dark:border-white/10 p-5 space-y-4">
-        <h2 className="font-bold text-sm text-[#0F2B5B] dark:text-white uppercase tracking-wide">Intervenção & gestão</h2>
+      <section className="bg-white dark:bg-[#850b0b]/30 rounded-2xl border border-gray-100 dark:border-white/10 p-5 space-y-4">
+        <h2 className="font-bold text-sm text-[#850b0b] dark:text-white uppercase tracking-wide">Intervenção & gestão</h2>
         <div className="grid sm:grid-cols-2 gap-4">
           <Field label="Empresa executora">
             <input className={inputCls} value={form.executor} onChange={(e) => set("executor", e.target.value)} />
@@ -493,9 +493,9 @@ function NestedList({
   fields: Array<{ key: string; label: string; type?: "number" | "image" }>;
 }) {
   return (
-    <section className="bg-white dark:bg-[#0F2B5B]/30 rounded-2xl border border-gray-100 dark:border-white/10 p-5 space-y-3">
+    <section className="bg-white dark:bg-[#850b0b]/30 rounded-2xl border border-gray-100 dark:border-white/10 p-5 space-y-3">
       <div className="flex items-center justify-between">
-        <h2 className="font-bold text-sm text-[#0F2B5B] dark:text-white uppercase tracking-wide">
+        <h2 className="font-bold text-sm text-[#850b0b] dark:text-white uppercase tracking-wide">
           {title} <span className="text-gray-400 normal-case">({rows.length})</span>
         </h2>
         <Btn variant="ghost" size="sm" onClick={() => onChange([...rows, { _key: keyCounter++ }])}>
@@ -579,7 +579,7 @@ function ImageUploadField({ value, onChange, placeholder }: { value: string; onC
           placeholder={placeholder}
           onChange={(e) => onChange(normalizeAssetUrl(e.target.value) ?? e.target.value)}
         />
-        <label className="inline-flex cursor-pointer items-center gap-2 rounded-lg border border-gray-200 bg-white px-2.5 py-2 text-xs font-medium text-[#0F2B5B] hover:bg-gray-50 dark:border-white/10 dark:bg-[#0F2B5B]/20 dark:text-white">
+        <label className="inline-flex cursor-pointer items-center gap-2 rounded-lg border border-gray-200 bg-white px-2.5 py-2 text-xs font-medium text-[#850b0b] hover:bg-gray-50 dark:border-white/10 dark:bg-[#850b0b]/20 dark:text-white">
           <svg viewBox="0 0 24 24" aria-hidden="true" className="h-3.5 w-3.5 fill-none stroke-current stroke-[2]">
             <path d="M12 16V4m0 0-4 4m4-4 4 4M4 18.5V18a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>

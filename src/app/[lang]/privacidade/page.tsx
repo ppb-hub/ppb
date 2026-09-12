@@ -112,7 +112,7 @@ export default async function PrivacyPage({ params }: { params: Promise<{ lang: 
 
   return (
     <div className="min-h-screen bg-white dark:bg-[#0a1628]">
-      <div className="bg-[#0F2B5B] py-16 px-4 sm:px-6 text-center">
+      <div className="bg-[#850b0b] py-16 px-4 sm:px-6 text-center">
         <div className="max-w-3xl mx-auto">
           <h1 className="text-3xl font-bold text-white font-['Montserrat'] mb-3">{ui.privacy.title}</h1>
           <p className="text-white/70">{ui.privacy.intro}</p>
@@ -121,7 +121,7 @@ export default async function PrivacyPage({ params }: { params: Promise<{ lang: 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 py-14 space-y-8">
         {blocks.map((b) => (
           <section key={b.h} id={b.h.startsWith("4") ? "cookies" : undefined}>
-            <h2 className="text-lg font-bold text-[#0F2B5B] dark:text-white font-['Montserrat'] mb-3">{b.h}</h2>
+            <h2 className="text-lg font-bold text-[#850b0b] dark:text-white font-['Montserrat'] mb-3">{b.h}</h2>
             {b.ps.map((p, i) => (
               <p key={i} className="text-gray-600 dark:text-white/70 text-sm leading-relaxed mb-2">
                 {p}

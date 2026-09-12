@@ -7,10 +7,10 @@ import { AlertTriangle, CheckCircle2, Loader2, X } from "lucide-react";
 
 export function Card({ title, actions, children, className = "" }: { title?: React.ReactNode; actions?: React.ReactNode; children: React.ReactNode; className?: string }) {
   return (
-    <section className={`bg-white dark:bg-[#0F2B5B]/30 rounded-2xl border border-gray-100 dark:border-white/10 shadow-[0_4px_12px_rgba(0,0,0,0.06)] overflow-hidden ${className}`}>
+    <section className={`bg-white dark:bg-[#850b0b]/30 rounded-2xl border border-gray-100 dark:border-white/10 shadow-[0_4px_12px_rgba(0,0,0,0.06)] overflow-hidden ${className}`}>
       {(title || actions) && (
         <header className="flex flex-wrap items-center justify-between gap-3 px-5 py-4 border-b border-gray-100 dark:border-white/10">
-          <h2 className="font-bold text-[#0F2B5B] dark:text-white font-['Montserrat'] text-base">{title}</h2>
+          <h2 className="font-bold text-[#850b0b] dark:text-white font-['Montserrat'] text-base">{title}</h2>
           <div className="flex items-center gap-2">{actions}</div>
         </header>
       )}
@@ -33,10 +33,10 @@ export function Btn({
 }) {
   const styles = {
     primary: "bg-[#E8821A] hover:bg-[#c96d10] text-white",
-    gold: "bg-[#D4A843] hover:bg-[#e0bc6a] text-[#0F2B5B]",
+    gold: "bg-[#D4A843] hover:bg-[#e0bc6a] text-[#850b0b]",
     danger: "bg-[#E74C3C] hover:bg-[#c0392b] text-white",
-    ghost: "bg-transparent hover:bg-gray-100 dark:hover:bg-white/10 text-[#0F2B5B] dark:text-white",
-    outline: "border border-gray-200 dark:border-white/20 hover:border-[#0F2B5B] dark:hover:border-white text-[#0F2B5B] dark:text-white",
+    ghost: "bg-transparent hover:bg-gray-100 dark:hover:bg-white/10 text-[#850b0b] dark:text-white",
+    outline: "border border-gray-200 dark:border-white/20 hover:border-[#850b0b] dark:hover:border-white text-[#850b0b] dark:text-white",
   }[variant];
   return (
     <button
@@ -57,7 +57,7 @@ export const inputCls =
 
 export function Label({ children, required }: { children: React.ReactNode; required?: boolean }) {
   return (
-    <label className="block text-xs font-semibold text-[#0F2B5B] dark:text-white mb-1.5 uppercase tracking-wide">
+    <label className="block text-xs font-semibold text-[#850b0b] dark:text-white mb-1.5 uppercase tracking-wide">
       {children}
       {required && <span className="text-red-500 ml-0.5 normal-case">*</span>}
     </label>
@@ -97,7 +97,7 @@ export function Modal({ title, onClose, children, wide }: { title: string; onClo
       <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={onClose} />
       <div className={`relative bg-white dark:bg-[#0a1628] w-full ${wide ? "sm:max-w-3xl" : "sm:max-w-lg"} rounded-t-2xl sm:rounded-2xl shadow-2xl max-h-[92vh] flex flex-col`}>
         <header className="flex items-center justify-between px-5 py-4 border-b border-gray-100 dark:border-white/10">
-          <h3 className="font-bold text-[#0F2B5B] dark:text-white font-['Montserrat']">{title}</h3>
+          <h3 className="font-bold text-[#850b0b] dark:text-white font-['Montserrat']">{title}</h3>
           <button onClick={onClose} aria-label="Fechar" className="text-gray-400 hover:text-gray-600 dark:hover:text-white">
             <X size={20} />
           </button>
@@ -207,7 +207,7 @@ export function Toaster() {
         <div
           key={t.id}
           className={`flex items-center gap-2 px-4 py-3 rounded-xl shadow-lg text-sm text-white animate-fade-in ${
-            t.type === "ok" ? "bg-[#0F2B5B]" : "bg-[#E74C3C]"
+            t.type === "ok" ? "bg-[#850b0b]" : "bg-[#E74C3C]"
           }`}
         >
           {t.type === "ok" ? <CheckCircle2 size={15} className="text-[#27AE60]" /> : <AlertTriangle size={15} />}

@@ -44,9 +44,9 @@ export default function ProjectActions({ locale, ui, title }: { locale: Locale; 
       {shareOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-label={ui.common.share}>
           <div className="absolute inset-0 bg-black/40" onClick={() => setShareOpen(false)} />
-          <div className="relative bg-white dark:bg-[#0F2B5B] rounded-2xl p-6 w-80 shadow-2xl">
+          <div className="relative bg-white dark:bg-[#850b0b] rounded-2xl p-6 w-80 shadow-2xl">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="font-bold text-[#0F2B5B] dark:text-white font-['Montserrat']">{ui.common.share}</h3>
+              <h3 className="font-bold text-[#850b0b] dark:text-white font-['Montserrat']">{ui.common.share}</h3>
               <button onClick={() => setShareOpen(false)} aria-label={ui.menu.close}>
                 <X size={18} className="text-gray-400" />
               </button>
@@ -65,7 +65,7 @@ export default function ProjectActions({ locale, ui, title }: { locale: Locale; 
                 </a>
               ))}
             </div>
-            <button onClick={copy} className="mt-3 w-full flex items-center justify-center gap-2 border border-gray-200 dark:border-white/20 rounded-xl py-2.5 text-sm font-medium text-[#0F2B5B] dark:text-white hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
+            <button onClick={copy} className="mt-3 w-full flex items-center justify-center gap-2 border border-gray-200 dark:border-white/20 rounded-xl py-2.5 text-sm font-medium text-[#850b0b] dark:text-white hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
               {copied ? <Check size={15} className="text-[#27AE60]" aria-hidden="true" /> : <Share2 size={15} aria-hidden="true" />}
               {copied ? ui.common.linkCopied : ui.common.copyLink}
             </button>

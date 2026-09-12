@@ -48,7 +48,7 @@ export default async function OpportunitiesPage({
 
   return (
     <div className="min-h-screen bg-white dark:bg-[#0a1628]">
-      <div className="bg-[#0F2B5B] py-10 px-4 sm:px-6">
+      <div className="bg-[#850b0b] py-10 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <Breadcrumbs
             locale={locale}
@@ -60,7 +60,7 @@ export default async function OpportunitiesPage({
               {ui.investor.opportunitiesTitle}
             </h1>
             {oppsRes.ok && (
-              <span className="bg-[#D4A843] text-[#0F2B5B] text-sm font-bold px-3 py-1 rounded-full self-start sm:self-auto">
+              <span className="bg-[#D4A843] text-[#850b0b] text-sm font-bold px-3 py-1 rounded-full self-start sm:self-auto">
                 {oppsRes.data.length} {locale === "pt" ? "oportunidades" : "opportunities"}
               </span>
             )}

@@ -79,10 +79,10 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
       />
 
       {/* NÚMEROS */}
-      <section className="bg-[#F8F9FA] dark:bg-[#091d3f]/60 py-16">
+      <section className="bg-[#F8F9FA] dark:bg-[#850b0b]/60 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-10">
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat']">{ui.home.statsTitle}</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#850b0b] dark:text-white font-['Montserrat']">{ui.home.statsTitle}</h2>
             <p className="text-gray-500 dark:text-white/60 mt-2">{ui.home.statsSubtitle}</p>
           </div>
           {!statsRes.ok ? (
@@ -104,7 +104,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
             <div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat']">{ui.home.featuredTitle}</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#850b0b] dark:text-white font-['Montserrat']">{ui.home.featuredTitle}</h2>
               <p className="text-gray-500 dark:text-white/60 mt-1">{ui.home.featuredSubtitle}</p>
             </div>
             <Link href={projectsUrl} className="inline-flex items-center gap-2 text-[#E8821A] font-medium hover:gap-3 transition-all">
@@ -122,7 +122,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
       </section>
 
       {/* INVESTIDORES — secção institucional do template */}
-      <section className="py-20 bg-[#0F2B5B] relative overflow-hidden">
+      <section className="py-20 bg-[#850b0b] relative overflow-hidden">
         <div className="absolute inset-0 opacity-10" aria-hidden="true">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/media/invest-port.jpg" alt="" className="w-full h-full object-cover" loading="lazy" />
@@ -145,7 +145,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
           <div className="w-14 h-14 bg-[#E8821A]/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
             <Bell size={28} className="text-[#E8821A]" aria-hidden="true" />
           </div>
-          <h2 className="text-2xl font-bold text-[#0F2B5B] dark:text-white font-['Montserrat'] mb-2">{ui.home.alertTitle}</h2>
+          <h2 className="text-2xl font-bold text-[#850b0b] dark:text-white font-['Montserrat'] mb-2">{ui.home.alertTitle}</h2>
           <p className="text-gray-500 dark:text-white/60 mb-8">{ui.home.alertText}</p>
           <Link
             href={contactUrl}

@@ -2,7 +2,7 @@
 
 export function ProjectCardSkeleton() {
   return (
-    <div className="bg-white dark:bg-[#0F2B5B]/30 rounded-2xl overflow-hidden border border-gray-100 dark:border-white/10">
+    <div className="bg-white dark:bg-[#850b0b]/30 rounded-2xl overflow-hidden border border-gray-100 dark:border-white/10">
       <div className="h-48 skeleton" />
       <div className="p-5 space-y-3">
         <div className="skeleton h-5 w-20 rounded-full" />
@@ -27,7 +27,7 @@ export function ProjectGridSkeleton({ count = 6 }: { count?: number }) {
 
 export function ListRowSkeleton() {
   return (
-    <div className="bg-white dark:bg-[#0F2B5B]/30 border border-gray-100 dark:border-white/10 rounded-xl p-4 flex items-center gap-4">
+    <div className="bg-white dark:bg-[#850b0b]/30 border border-gray-100 dark:border-white/10 rounded-xl p-4 flex items-center gap-4">
       <div className="w-20 h-14 skeleton rounded-lg shrink-0" />
       <div className="flex-1 space-y-2">
         <div className="skeleton h-3 w-24 rounded-full" />
@@ -40,7 +40,7 @@ export function ListRowSkeleton() {
 
 export function FeatureSlideSkeleton() {
   return (
-    <div className="grid md:grid-cols-2 gap-0 bg-white dark:bg-[#0F2B5B]/30 rounded-2xl overflow-hidden border border-gray-100 dark:border-white/10">
+    <div className="grid md:grid-cols-2 gap-0 bg-white dark:bg-[#850b0b]/30 rounded-2xl overflow-hidden border border-gray-100 dark:border-white/10">
       <div className="h-64 md:h-auto skeleton" />
       <div className="p-8 space-y-4">
         <div className="skeleton h-5 w-24 rounded-full" />
@@ -56,7 +56,7 @@ export function FeatureSlideSkeleton() {
 
 export function StatCardSkeleton() {
   return (
-    <div className="bg-white dark:bg-[#0F2B5B]/40 rounded-2xl p-6 border border-gray-100 dark:border-white/10 flex flex-col items-center gap-3">
+    <div className="bg-white dark:bg-[#850b0b]/40 rounded-2xl p-6 border border-gray-100 dark:border-white/10 flex flex-col items-center gap-3">
       <div className="w-14 h-14 skeleton rounded-xl" />
       <div className="skeleton h-8 w-24" />
       <div className="skeleton h-3 w-32" />
