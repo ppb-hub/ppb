@@ -77,7 +77,7 @@ export default function HeroSection({
                 className="w-full h-full object-cover"
                 fetchPriority={index === 0 ? "high" : "low"}
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-[#c93239]/80 via-[#c93239]/60 to-[#c93239]/90" aria-hidden="true" />
+              <div className="absolute inset-0 bg-gradient-to-b from-[#0F2B5B]/80 via-[#0F2B5B]/60 to-[#091d3f]/90" aria-hidden="true" />
             </SwiperSlide>
           ))}
         </Swiper>
