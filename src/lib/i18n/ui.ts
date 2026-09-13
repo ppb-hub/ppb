@@ -116,6 +116,7 @@ export interface UiStrings {
   };
   detail: {
     description: string;
+    benefits: string;
     objectives: string;
     timeline: string;
     documents: string;
@@ -358,7 +359,8 @@ const pt: UiStrings = {
   },
   detail: {
     description: "Descrição",
-    objectives: "Objetivos",
+    benefits: "Benefícios",
+    objectives: "Objectivos",
     timeline: "Linha do Tempo",
     documents: "Documentos",
     location: "Localização",
@@ -609,6 +611,7 @@ const en: UiStrings = {
   },
   detail: {
     description: "Description",
+    benefits: "Benefits",
     objectives: "Objectives",
     timeline: "Timeline",
     documents: "Documents",

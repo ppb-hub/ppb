@@ -34,6 +34,18 @@ export interface ProjectStatusOut {
 }
 
 /* ---------- Projetos ---------- */
+export interface BenefitOut {
+  id: number;
+  text_pt: string;
+  text_en: string;
+  ordem: number;
+}
+export interface BenefitIn {
+  text_pt?: string;
+  text_en?: string;
+  ordem?: number;
+}
+
 export interface ObjectiveOut {
   id: number;
   text_pt: string;
@@ -111,6 +123,7 @@ export interface ProjectDetailOut extends ProjectListOut {
   cover_alt_pt: string | null;
   cover_alt_en: string | null;
   objectives?: ObjectiveOut[];
+  benefits?: BenefitOut[];
   images?: ImageOut[];
   documents?: DocumentOut[];
   created_at?: string | null;
@@ -149,6 +162,7 @@ export interface ProjectCreate {
   ativo?: boolean;
   is_opportunity?: boolean;
   objectives?: ObjectiveIn[];
+  benefits?: BenefitIn[];
   images?: ImageIn[];
   documents?: DocumentIn[];
 }

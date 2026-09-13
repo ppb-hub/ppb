@@ -51,6 +51,7 @@ interface FormState {
   ativo: boolean;
   is_opportunity: boolean;
   objectives: Row[];
+  benefits: Row[];
   images: Row[];
   documents: Row[];
 }
@@ -87,6 +88,7 @@ const emptyForm = (): FormState => ({
   ativo: true,
   is_opportunity: false,
   objectives: [],
+  benefits: [],
   images: [],
   documents: [],
 });
@@ -160,6 +162,7 @@ export default function ProjectForm({ projectId }: { projectId?: number }) {
           ativo: !!p.ativo,
           is_opportunity: !!p.is_opportunity,
           objectives: withKeys((p.objectives ?? []).map((o) => ({ text_pt: o.text_pt, text_en: o.text_en }))),
+          benefits: withKeys((p.benefits ?? []).map((b) => ({ text_pt: b.text_pt, text_en: b.text_en }))),
           images: withKeys((p.images ?? []).map((i) => ({ url: i.url, alt_pt: i.alt_pt ?? "", alt_en: i.alt_en ?? "" }))),
           documents: withKeys((p.documents ?? []).map((d) => ({ name_pt: d.name_pt, name_en: d.name_en, file_url: d.file_url, size_kb: d.size_kb ?? "" }))),
         });
@@ -207,6 +210,7 @@ export default function ProjectForm({ projectId }: { projectId?: number }) {
     ativo: form.ativo,
     is_opportunity: form.is_opportunity,
     objectives: form.objectives.map((o, i) => ({ text_pt: String(o.text_pt ?? ""), text_en: String(o.text_en ?? ""), ordem: i + 1 })),
+    benefits: form.is_opportunity ? form.benefits.map((b, i) => ({ text_pt: String(b.text_pt ?? ""), text_en: String(b.text_en ?? ""), ordem: i + 1 })) : [],
     images: form.images.map((img, i) => ({ url: String(img.url ?? ""), alt_pt: String(img.alt_pt ?? "") || null, alt_en: String(img.alt_en ?? "") || null, ordem: i + 1 })),
     documents: form.documents.map((d, i) => ({
       name_pt: String(d.name_pt ?? ""),
@@ -265,7 +269,7 @@ export default function ProjectForm({ projectId }: { projectId?: number }) {
             <ArrowLeft size={16} />
           </Link>
           <div className="min-w-0">
-            <h1 className="text-2xl font-bold text-[#850b0b] dark:text-white font-['Montserrat'] truncate">
+            <h1 className="text-2xl font-bold text-[#c93239] dark:text-white font-['Montserrat'] truncate">
               {projectId ? "Editar projeto" : "Novo projeto"}
             </h1>
           </div>
@@ -282,8 +286,8 @@ export default function ProjectForm({ projectId }: { projectId?: number }) {
 
       {error ? <ErrorLine message={error} /> : null}
 
-      <section className="bg-white dark:bg-[#850b0b]/30 rounded-2xl border border-gray-100 dark:border-white/10 p-5 space-y-4">
-        <h2 className="font-bold text-sm text-[#850b0b] dark:text-white uppercase tracking-wide">Identificação</h2>
+      <section className="bg-white dark:bg-[#c93239]/30 rounded-2xl border border-gray-100 dark:border-white/10 p-5 space-y-4">
+        <h2 className="font-bold text-sm text-[#c93239] dark:text-white uppercase tracking-wide">Identificação</h2>
         <div className="grid sm:grid-cols-2 gap-4">
           <Field label="Título (PT)" required>
             <input className={inputCls} value={form.title_pt} onChange={(e) => set("title_pt", e.target.value)} />
@@ -337,8 +341,8 @@ export default function ProjectForm({ projectId }: { projectId?: number }) {
         </div>
       </section>
 
-      <section className="bg-white dark:bg-[#850b0b]/30 rounded-2xl border border-gray-100 dark:border-white/10 p-5 space-y-4">
-        <h2 className="font-bold text-sm text-[#850b0b] dark:text-white uppercase tracking-wide">Execução & valores</h2>
+      <section className="bg-white dark:bg-[#c93239]/30 rounded-2xl border border-gray-100 dark:border-white/10 p-5 space-y-4">
+        <h2 className="font-bold text-sm text-[#c93239] dark:text-white uppercase tracking-wide">Execução & valores</h2>
         <div className="grid sm:grid-cols-4 gap-4">
           <Field label={`Progresso: ${form.progress}%`}>
             <input type="range" min={0} max={100} value={form.progress} onChange={(e) => set("progress", Number(e.target.value))} className="w-full accent-[#E8821A]" />
@@ -383,8 +387,8 @@ export default function ProjectForm({ projectId }: { projectId?: number }) {
         </div>
       </section>
 
-      <section className="bg-white dark:bg-[#850b0b]/30 rounded-2xl border border-gray-100 dark:border-white/10 p-5 space-y-4">
-        <h2 className="font-bold text-sm text-[#850b0b] dark:text-white uppercase tracking-wide">Intervenção & gestão</h2>
+      <section className="bg-white dark:bg-[#c93239]/30 rounded-2xl border border-gray-100 dark:border-white/10 p-5 space-y-4">
+        <h2 className="font-bold text-sm text-[#c93239] dark:text-white uppercase tracking-wide">Intervenção & gestão</h2>
         <div className="grid sm:grid-cols-2 gap-4">
           <Field label="Empresa executora">
             <input className={inputCls} value={form.executor} onChange={(e) => set("executor", e.target.value)} />
@@ -433,8 +437,8 @@ export default function ProjectForm({ projectId }: { projectId?: number }) {
       </section>
 
       <NestedList
-        title="Objetivos"
-        addLabel="Adicionar objetivo"
+        title="Objectivos"
+        addLabel="Adicionar objectivo"
         rows={form.objectives}
         onChange={(rows) => set("objectives", rows)}
         fields={[
@@ -442,6 +446,18 @@ export default function ProjectForm({ projectId }: { projectId?: number }) {
           { key: "text_en", label: "Texto (EN)" },
         ]}
       />
+      {form.is_opportunity ? (
+        <NestedList
+          title="Benefícios"
+          addLabel="Adicionar benefício"
+          rows={form.benefits}
+          onChange={(rows) => set("benefits", rows)}
+          fields={[
+            { key: "text_pt", label: "Texto (PT)" },
+            { key: "text_en", label: "Texto (EN)" },
+          ]}
+        />
+      ) : null}
       <NestedList
         title="Galeria de imagens"
         addLabel="Adicionar imagem"
@@ -493,9 +509,9 @@ function NestedList({
   fields: Array<{ key: string; label: string; type?: "number" | "image" }>;
 }) {
   return (
-    <section className="bg-white dark:bg-[#850b0b]/30 rounded-2xl border border-gray-100 dark:border-white/10 p-5 space-y-3">
+    <section className="bg-white dark:bg-[#c93239]/30 rounded-2xl border border-gray-100 dark:border-white/10 p-5 space-y-3">
       <div className="flex items-center justify-between">
-        <h2 className="font-bold text-sm text-[#850b0b] dark:text-white uppercase tracking-wide">
+        <h2 className="font-bold text-sm text-[#c93239] dark:text-white uppercase tracking-wide">
           {title} <span className="text-gray-400 normal-case">({rows.length})</span>
         </h2>
         <Btn variant="ghost" size="sm" onClick={() => onChange([...rows, { _key: keyCounter++ }])}>
@@ -579,7 +595,7 @@ function ImageUploadField({ value, onChange, placeholder }: { value: string; onC
           placeholder={placeholder}
           onChange={(e) => onChange(normalizeAssetUrl(e.target.value) ?? e.target.value)}
         />
-        <label className="inline-flex cursor-pointer items-center gap-2 rounded-lg border border-gray-200 bg-white px-2.5 py-2 text-xs font-medium text-[#850b0b] hover:bg-gray-50 dark:border-white/10 dark:bg-[#850b0b]/20 dark:text-white">
+        <label className="inline-flex cursor-pointer items-center gap-2 rounded-lg border border-gray-200 bg-white px-2.5 py-2 text-xs font-medium text-[#c93239] hover:bg-gray-50 dark:border-white/10 dark:bg-[#c93239]/20 dark:text-white">
           <svg viewBox="0 0 24 24" aria-hidden="true" className="h-3.5 w-3.5 fill-none stroke-current stroke-[2]">
             <path d="M12 16V4m0 0-4 4m4-4 4 4M4 18.5V18a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
